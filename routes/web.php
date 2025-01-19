@@ -1,6 +1,7 @@
 <?php
 
-
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\VideosController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Auth\LoginController;
@@ -312,3 +313,6 @@ Route::get('ie/{entity}', function (Order $entity) {
         'entity' => $entity
     ]);
 })->name('alaa.pdf');
+
+Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
+Route::get('/videos', [VideosController::class, 'index'])->name('videos');

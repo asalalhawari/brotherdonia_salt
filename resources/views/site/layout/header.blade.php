@@ -39,12 +39,12 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">كتالوج</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('catalog') }}">كتالوج</a>
                 </li>
 
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">فيديوهات خاصة</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('videos') }}">فيديوهات خاصة</a>
                 </li>
 
                 <li class="nav-item">

@@ -6,10 +6,16 @@ use App\Transformers\BrancheTransformer;
 use Flugg\Responder\Contracts\Transformable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use App\Models\Traits\HasMediaTrait;
 
-class Branche extends Model implements Transformable
+
+
+class Branche extends Model implements Transformable, HasMedia
 {
     use HasFactory;
+    use HasMediaTrait;
+
 
     public function setBlobAttribute(){
         $this->attributes['blob'] = '';

@@ -22,7 +22,14 @@
         <a class="nav-link" href="{{route('contact_us.show')}}"><span>@langucw('contact')</span></a>
     </li>
 </ul>
-
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('catalog') }}">الكتالوج</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('videos') }}">الفيديوهات</a>
+    </li>
+</ul>
 
 {{-- <div class="header-menu d-flex justify-content-center">
     <ul class="header-primary-menu header-primary-menu-04 px-5 shadow bg-white rounded-pill d-flex justify-content-center">
