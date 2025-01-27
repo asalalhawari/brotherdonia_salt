@@ -63,7 +63,10 @@ class User extends Authenticatable implements HasMedia, Transformable
         'SocialStatus',
         'device_token',
         'CustomerID',
-        'branch_id'
+        'branch_id',
+        'country' , 
+            'currency',
+        
     ];
     protected $dates = [
 

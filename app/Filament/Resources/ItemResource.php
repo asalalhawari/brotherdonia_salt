@@ -38,6 +38,7 @@ class ItemResource extends Resource
         return $form
             ->schema([
                 SpatieMediaLibraryFileUpload::make('main_product')
+                ->multiple()
                     ->collection('products')->columnSpan(2),
                 // Forms\Components\TextInput::make('CatID')
                 //     ->label('Category ID')

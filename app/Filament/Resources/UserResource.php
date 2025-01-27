@@ -29,64 +29,74 @@ class UserResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-        ->schema([
-            Forms\Components\TextInput::make('name')
-                ->required()
-                ->label('Name'),
-            Forms\Components\TextInput::make('email')
-                ->email()
-                ->required()
-                ->rule(fn($get) => $get('id') == null ? 'unique:users,email' : '')
-
-                ->label('Email'),
-            Forms\Components\TextInput::make('phone')
-                ->required()
-                ->rule(fn($get) => $get('id') == null ? 'unique:users,phone' : '')
-                
-                ->label('Phone'),
-            Forms\Components\Select::make('gender')
-                ->options([
-                    0 => 'Male',
-                    1 => 'Female',
-                ])
-                ->required()
-                ->label('Gender'),
-                // Using Select Component
-Forms\Components\Select::make('roles')
-->relationship('roles', 'name')
-->multiple()
-->preload()
-->searchable(),
-            Forms\Components\DatePicker::make('BirthDate')
-                ->label('Birth Date'),
-            SpatieMediaLibraryFileUpload::make('avatar')
-                ->collection('avatar'),
-
-                
-
-            // Forms\Components\TextInput::make('SocialStatus')
-            //     ->label('Social Status'),
-            // Forms\Components\Toggle::make('HasNotifications')
-            //     ->label('Has Notifications')
-            //     ->default(true),
-            // Forms\Components\TextInput::make('RelativesCount')
-            //     ->numeric()
-            //     ->label('Relatives Count'),
-            Forms\Components\DateTimePicker::make('LastSeenAt')
-                ->label('Last Seen At')
-                ->disabled(),
-            Forms\Components\TextInput::make('password')
-                ->password()
-                ->dehydrated(fn ($state) => !empty($state)) 
-                ->placeholder('Leave empty to unchange password')
-                ->label('Password'),
-            Forms\Components\Hidden::make('CustomerID')
-                ->default(null),
-            Forms\Components\Hidden::make('ZoneID')
-                ->default(null),
-            Select::make('branch_id')
-            ->relationship('branch', 'AddresAr')
-        ]);
+            ->schema([
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->label('Name'),
+                Forms\Components\TextInput::make('email')
+                    ->email()
+                    ->required()
+                    ->rule(fn($get) => $get('id') == null ? 'unique:users,email' : '')
+                    ->label('Email'),
+                Forms\Components\TextInput::make('phone')
+                    ->required()
+                    ->rule(fn($get) => $get('id') == null ? 'unique:users,phone' : '')
+                    ->label('Phone'),
+                Forms\Components\Select::make('gender')
+                    ->options([
+                        0 => 'Male',
+                        1 => 'Female',
+                    ])
+                    ->required()
+                    ->label('Gender'),
+                // Using Select Component for roles
+                Forms\Components\Select::make('roles')
+                    ->relationship('roles', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->searchable(),
+                Forms\Components\DatePicker::make('BirthDate')
+                    ->label('Birth Date'),
+                SpatieMediaLibraryFileUpload::make('avatar')
+                    ->collection('avatar'),
+                Forms\Components\DateTimePicker::make('LastSeenAt')
+                    ->label('Last Seen At')
+                    ->disabled(),
+                Forms\Components\TextInput::make('password')
+                    ->password()
+                    ->dehydrated(fn ($state) => !empty($state)) 
+                    ->placeholder('Leave empty to unchange password')
+                    ->label('Password'),
+                Forms\Components\Hidden::make('CustomerID')
+                    ->default(null),
+                Forms\Components\Hidden::make('ZoneID')
+                    ->default(null),
+                // Adding Country field
+                Forms\Components\Select::make('country')
+                    ->options([
+                        'EG' => 'مصر',
+                        'US' => 'الولايات المتحدة',
+                        'SA' => 'السعودية',
+                        'AE' => 'الإمارات',
+                        'JO' => 'الأردن',
+                    ])
+                    ->required()
+                    ->label('Country'),
+                // Adding Currency field
+                Forms\Components\Select::make('currency')
+                    ->options([
+                        'EGP' => 'جنيه مصري',
+                        'USD' => 'دولار أمريكي',
+                        'SAR' => 'ريال سعودي',
+                        'AED' => 'درهم إماراتي',
+                        'JOD' => 'دينار أردني',
+                    ])
+                    ->required()
+                    ->label('Currency'),
+                // Adding Branch ID field
+                Select::make('branch_id')
+                    ->relationship('branch', 'AddresAr'),
+            ]);
     }
 
     public static function table(Table $table): Table
@@ -94,21 +104,12 @@ Forms\Components\Select::make('roles')
         return $table
             ->columns([
                 SpatieMediaLibraryImageColumn::make('avatar')->collection('avatar'),
-
                 Tables\Columns\TextColumn::make('name')->label('Name')->searchable(),
                 Tables\Columns\TextColumn::make('email')->label('Email')->searchable(),
                 Tables\Columns\TextColumn::make('phone')->label('Phone')->searchable(),
                 Tables\Columns\TextColumn::make('gender')->label('Gender'),
-                // Tables\Columns\TextColumn::make('BirthDate')->label('Birth Date')->date(),
-                // Tables\Columns\TextColumn::make('LastSeenAt')->label('Last Seen At')->dateTime(),
-                // Tables\Columns\BooleanColumn::make('HasNotifications')->label('Notifications Enabled'),
-
-                // Tables\Columns\TextColumn::make('created_at')->label('Created At')->dateTime(),
-                // Tables\Columns\TextColumn::make('updated_at')->label('Updated At')->dateTime(),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([/* your filters */])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
@@ -121,9 +122,7 @@ Forms\Components\Select::make('roles')
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [ /* your relations */ ];
     }
 
     public static function getPages(): array

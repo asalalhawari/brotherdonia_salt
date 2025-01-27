@@ -19,3 +19,4 @@ class Currencie extends Model
         $this->attributes['blob'] = '';
     }
 }
+

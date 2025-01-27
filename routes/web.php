@@ -4,6 +4,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\VideosController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ScrollController;
 use App\Models\Order;
@@ -30,7 +31,7 @@ use \App\Http\Controllers\Site\NotificationController;
 use \App\Http\Controllers\Site\userOccasionsController;
 use \App\Http\Controllers\Site\ReferralController;
 use \App\Http\Controllers\Site\MyprofileController;
-
+use Illuminate\Support\Facades\Auth;
 
 Route::post('/ajax-login', [LoginController::class, 'ajaxLogin'])->name('ajax.login');
 
@@ -316,3 +317,7 @@ Route::get('ie/{entity}', function (Order $entity) {
 
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
 Route::get('/videos', [VideosController::class, 'index'])->name('videos');
+
+
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('register', [RegisterController::class, 'register'])->name('register');

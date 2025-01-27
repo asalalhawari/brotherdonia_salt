@@ -5188,11 +5188,8 @@ section.address {
 table {
     width: 100%;
 }
-/* جعل الصفحة استجابة */
 @media (max-width: 1200px) {
-    /* لتعديل النصوص، العناوين، والتخطيط على الشاشات الكبيرة */
     .home-slider .main-slider {
-        /* قد تحتاج لتقليل حجم الصور أو تغيير تخطيط السلايدر على الشاشات الكبيرة */
     }
 
     .cats .container {
@@ -5237,7 +5234,6 @@ table {
 }
 
 @media (max-width: 768px) {
-    /* تخصيص التخطيط للأجهزة الصغيرة (مثل الهواتف الذكية) */
     .intro span {
         font-size: 14px;
         text-align: center;
@@ -5276,7 +5272,6 @@ table {
 }
 
 @media (max-width: 576px) {
-    /* تخصيص التخطيط للأجهزة الصغيرة جداً */
     .intro span {
         font-size: 12px;
     }

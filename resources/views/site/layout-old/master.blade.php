@@ -7,6 +7,7 @@
     @include('site.layout.head')
     @include('components.head-script')
     @include('site.layout.search')
+
 </head>
 
 
