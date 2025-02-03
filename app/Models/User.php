@@ -65,7 +65,9 @@ class User extends Authenticatable implements HasMedia, Transformable
         'CustomerID',
         'branch_id',
         'country' , 
-            'currency',
+        'currency',
+        'source'
+           
         
     ];
     protected $dates = [

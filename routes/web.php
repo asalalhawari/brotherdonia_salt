@@ -319,5 +319,9 @@ Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
 Route::get('/videos', [VideosController::class, 'index'])->name('videos');
 
 
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('register', [RegisterController::class, 'register'])->name('register');
+// Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('register', [\App\Http\Controllers\Site\Auth\AuthController::class, 'register'])->name('register');
+
+
+
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');

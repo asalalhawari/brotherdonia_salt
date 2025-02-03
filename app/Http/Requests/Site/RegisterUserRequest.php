@@ -33,6 +33,8 @@ class RegisterUserRequest extends FormRequest
             'password' => ['required', 'string', 'min:8'],
             'gender' => ['nullable', 'integer', 'min:0', 'max:1'],
             'phone' => ["required", "regex:/^([0-9\s\\-\+\(\)]*)$/", 'unique:users,Phone'],
+            'currency'=>['required'],
+            'country'=>['required'],
 
         ];
     }

@@ -65,12 +65,12 @@ class UserService
     public static function logUser($user_id, $source, $data)
     {
 
-        $data = [
-            'source' => $source,
-            'data' => $data??'',
-            'UserID' => $user_id
-        ];
-        $log_user = new LogUser($data);
-        $log_user->save();
+        // $data = [
+        //     'source' => $source,
+        //     'data' => $data??'',
+        //     'UserID' => $user_id
+        // ];
+        // $log_user = new LogUser($data);
+        // $log_user->save();
     }
 }

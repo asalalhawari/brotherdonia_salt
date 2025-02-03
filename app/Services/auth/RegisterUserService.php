@@ -12,6 +12,8 @@ class RegisterUserService
 {
     public static function register(array $data){
 
+        // dd($data);
+
         if(isset($data['password'])&&!empty($data['password'])){
             $data['password'] = \Hash::make($data['password']);
         }else{
@@ -27,6 +29,8 @@ class RegisterUserService
         if(isset($data['LoginProvider'])&&!empty($data['LoginProvider'])){
             $data['LoginProvider'] = $data['LoginProvider'];
         }
+
+        // $data['source'] = 'web';
         $user = User::create($data);
 
         $point=ActionPointService::getActionPoint('new_account_points');
