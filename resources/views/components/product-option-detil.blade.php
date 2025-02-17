@@ -17,6 +17,22 @@
 
                         @endforeach
                     </select>
+
+                    @php
+                        $i = 0;
+                        $display = '';
+                    @endphp
+
+                    @foreach($optin as $item)
+                    {{-- @dd($item) --}}
+                    @php
+                        $display =  $i == 0 ? 'display:block' : 'display:none';
+                    @endphp
+                    <small id="small-{{ $item->id }}" style="{{ $display }}">{{ $item->subOption['blob'] }}</small>
+                    @php
+                        $i++;
+                    @endphp
+                    @endforeach
                 </div>
             </div>
         </div>

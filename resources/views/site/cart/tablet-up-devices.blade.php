@@ -20,22 +20,29 @@
                         </td>
                        
                         <td>
-                            <div class=""><img
-                                        alt="Cake-one" class="full-image"
-                                        src="{{asset($cart->item->getFirstMediaUrl('products', 'small'))}}"></div>
+                            <div class="">
+                    
+                                        @if ($cart->item->getFirstMediaUrl('products', 'full'))
+                                <img alt="cupcake" height="200" src="{{ asset($cart->item->getFirstMediaUrl('products', 'full')) }}"
+                                style="width: 70px !important;height:auto" />   
+                                @else
+                                <img alt="cupcake"  src="{{ asset('place.png') }}"
+                                style="width: 70px !important;height:auto" /> 
+                                @endif
+                                    </div>
                         </td>
                         <td>
-                            {{$cart->item->getTitle()}} ({{$cart->item->price()}})
+                            {{$cart->item->getTitle()}} ({{$cart->price}})
                                 @if($cart->optionDetil())
                                     @foreach($cart->optionDetil()->get()??[] as $option)
                                         <br>
-                                        <span>{{$option->subOption->getTitle()}} ({{$option->AdditionalValue}})</span>
+                                        <span>{{$option->subOption->getTitle()}} ({{$cart->price}})</span>
                                     @endforeach
                                 @endif
                            
                         </td>
                         @php
-                            $price=    ($cart->optionDetil()?$cart->optionDetil()->sum('AdditionalValue'):$cart->price) ;
+                            $price=    $cart->price ;
 
                         @endphp
                         <td>

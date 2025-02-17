@@ -63,8 +63,8 @@ Route::get('/test', function () {
 
 
 Route::get('shop', function () {
-    return redirect()->route('products.index');
-    // return view('site.cat.index');
+    // return redirect()->route('products.index');
+    return view('site.cat.index');
 
 })->name('mainshop');
 
@@ -169,7 +169,7 @@ Route::group(['prefix' => 'shipping_info', 'as' => 'shipping_info.'], function (
 //##########    products #############
 Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
     Route::controller(ProductsController::class)->group(function () {
-        Route::get('index/{rtype?}/{entity?}/{sub?}', 'index')->name('index');
+        Route::get('index/{entity?}/{sub?}', 'index')->name('index');
         Route::get('show/{entity}', 'show')->name('show');
         Route::get('quick-show/{entity}', 'quickShow')->name('quick-show');
 

@@ -65,7 +65,7 @@
         </div>
     </section>
 
-    <section class="cats">
+    {{-- <section class="cats">
         <div class="container">
             <h3 class="outheadein">الاقسام</h3>
 
@@ -140,7 +140,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
 
     <section class="cards">
         <div class="container">

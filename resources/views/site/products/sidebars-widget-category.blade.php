@@ -10,7 +10,9 @@
     <ul>
         @if($main_category)
         @foreach ($main_category->subCategory() as $category)
-            <li><input class="form-check-input" type="checkbox" /> <label>
+            <li><input class="form-check-input" type="checkbox" 
+                @if( $sub_category && ( $sub_category->id == $category->id ) ) checked @endif
+                /> <label>
                    
                         <span class="filter-form sidebar-item-title" main_category="{{$main_category->id??null}}" sub_category="{{ $category->id }}">
                             {{ $category->getName() }}
@@ -20,7 +22,9 @@
         @endforeach
         @else
         @foreach ($mainCategories as $category)
-            <li><input class="form-check-input" type="checkbox" /> <label>
+            <li><input class="form-check-input" type="checkbox" 
+                @if( $main_category && ( $main_category->id == $category->id ) ) checked @endif
+                /> <label>
                    
                         <span class="filter-form sidebar-item-title" main_category="{{ $category->id ?? null }}">
                             {{ $category->getName() }}

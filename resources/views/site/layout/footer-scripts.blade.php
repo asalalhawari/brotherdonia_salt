@@ -8,6 +8,9 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+<script src="{{ asset('js/dropzone.min.js') }}"></script>
+
+
 @include('components.filter-logic-script')
 
 
@@ -27,11 +30,31 @@
             centerMode: true,
             centerPadding: '60px',
             slidesToShow: 5,
+            responsive: [
+
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
         });
 
     });
 
-    
+
 
 
     $(document).on('change', '.input-number', function() {
@@ -43,7 +66,7 @@
         $(".subtotal_amount").html(getSubtotal());
     });
 
-    function customUpdate(id){
+    function customUpdate(id) {
         let quy = $("#qty-" + id).val();
         let price = $(".price-" + id).html();
         let itemTotal = (quy * price).toFixed(2);
@@ -60,7 +83,7 @@
     }
 
     // Handle the "plus" button click
-    $(document).on("click",".plus" ,function() {
+    $(document).on("click", ".plus", function() {
         let id = $(this).attr('att');
         let qtyInput = $("#qty-" + id);
         let currentValue = parseInt(qtyInput.val());
@@ -72,7 +95,7 @@
     });
 
     // Handle the "mins" button click
-    $(document).on("click",".mins", function() {
+    $(document).on("click", ".mins", function() {
         let id = $(this).attr('att');
         let qtyInput = $("#qty-" + id);
         let currentValue = parseInt(qtyInput.val());
@@ -118,7 +141,7 @@
     }
 
 
-    $(document).on('change','input[name=qty]',function () {
+    $(document).on('change', 'input[name=qty]', function() {
         // alert('Please select');
         var quy = $(this).val();
         console.log(quy)
@@ -126,20 +149,20 @@
         console.log(price)
 
 
-        $('.d-price-v').html( price * quy )
+        $('.d-price-v').html(price * quy)
 
     });
 
-    $(document).on('change','#OptID',function () {
+    $(document).on('change', '#OptID', function() {
         // alert()
         var quy = $('input[name=qty]').val();
         console.log(quy)
         var price = $('#OptID option:selected').data('price');
         console.log(price)
-        $(".d-price").attr('data-price',price)
+        $(".d-price").attr('data-price', price)
 
 
-        $('.d-price-v').html( price * quy )
+        $('.d-price-v').html(price * quy)
     });
 
     function nextRoute(Url) {

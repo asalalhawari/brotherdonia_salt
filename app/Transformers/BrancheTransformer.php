@@ -19,10 +19,12 @@ class BrancheTransformer extends Transformer
 
         return [
             'id'=>$branche->id,
-            'AddresAr'=>$branche->AddresAr,
-            'AddresEn'=>$branche->AddresEn,
+            'name'=>(string)$branche->name ?? "Branch Name",
+            'Addres'=>$branche->AddresAr,
             'Phone'=>$branche->Phone,
             'Map'=>$branche->Map,
+            //TODO ::
+            'image'=>(string)asset($branche->getFirstMediaUrl('products', 'large')) ?? "https://akhodonia.jolife.dev/storage/media/products/92dec31077bb9269f85f9c4a1e151e97/01JHF5QTFASRCSHTFJC3W5NFW1.jpg" ,
 
 
 

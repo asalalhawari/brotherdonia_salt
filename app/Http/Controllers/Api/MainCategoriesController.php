@@ -22,7 +22,7 @@ class MainCategoriesController extends Controller
     public function index()
     {
         $query = Category::where('CatID', 0);
-        return responder()->success($query)->respond();
+        return responder()->success($query->paginate(10))->respond();
     }
 
     public function create()

@@ -46,16 +46,17 @@ class ProductsTransformer extends Transformer
 
         $options = $entity->optionDetil->groupBy('POptID');
         $data = [];
-        foreach ($options ?? [] as $optin) {
+        $datad = [];
+        foreach ($options ?? [] as $key => $optin) {
 
-            $data[$optin[0]->id] =
+            $data =
                 [
                     'id' => $optin[0]->id,
                     'title_ar' => $optin[0]->subOption->itemOption->Name,
                     'title_en' => $optin[0]->subOption->itemOption->NameEN
                 ];
             foreach ($optin as $i => $item) {
-                $data[$optin[0]->id]['optin'][$i] =
+                $data['optin'][] =
                     [
                         'id' => $item->subOption->id,
                         'title_ar' => $item->subOption->Name,
@@ -63,8 +64,8 @@ class ProductsTransformer extends Transformer
                         'AdditionalValue' => $item->AdditionalValue
                     ];
             }
+            array_push($datad, $data);
         }
-        return $data;
-        return responder()->success(['options' => $data])->respond();
+        return $datad;
     }
 }

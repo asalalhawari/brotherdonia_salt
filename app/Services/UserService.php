@@ -43,9 +43,9 @@ class UserService
         if (isset($request->socialStatus) && !empty($request->socialStatus)) {
             $data['SocialStatus'] = $request->socialStatus;
         }
-//        if (isset($request->marriageDate) && !empty($request->marriageDate)) {
-//            $data['MarriageDate'] = $request->marriageDate;
-//        }
+       if (isset($request->birthDate) && !empty($request->birthDate)) {
+           $data['BirthDate'] = $request->birthDate;
+       }
 //        if (isset($request->partnerBirthdate) && !empty($request->partnerBirthdate)) {
 //            $data['PartnerBirthdate'] = $request->partnerBirthdate;
 //        }

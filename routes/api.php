@@ -71,6 +71,7 @@ Route::group(['as' => 'api.'], function () {
             Route::get('/flash-sale', 'flashSale')->name('flash-sale');
             Route::get('/option-detil/{entity}', 'optionDetil')->name('option-detil');
             Route::get('/random-products', 'randomProducts')->name('random-products');
+            Route::get('/best-selling', 'bestSelling')->name('best-selling');
 
 
         });
@@ -125,6 +126,9 @@ Route::group(['as' => 'api.'], function () {
 
         });
     });
+
+
+
 
     //########## application gifts #############
     Route::group(['prefix' => 'application-gifts', 'as' => 'application-gifts.',], function () {
@@ -195,6 +199,7 @@ Route::group(['as' => 'api.'], function () {
                 //change avatar
                 Route::post('update-avatar', 'updateAvatar');
                 Route::post('complete-profile', 'completeMyProfile')->name('complete_profile');
+                Route::get('points', 'points');
             });
 
         });
@@ -205,17 +210,17 @@ Route::group(['as' => 'api.'], function () {
     Route::group(['prefix' => 'cart', 'as' => 'cart.'], function () {
 
         Route::controller(CartController::class)->group(function () {
-            Route::post('/addtocart/{entity}', 'addToCart')->name('addtocart');
-            Route::post('/index', 'index')->name('view_cart');
-            Route::post('/update-amount', 'updateAmount')->name('updateAmount');
-            Route::post('delete/{entity}', 'destroy')->name('delete');
+            // Route::post('/addtocart/{entity}', 'addToCart')->name('addtocart');
+            // Route::get('/index', 'index')->name('view_cart');
+            // Route::post('/update-amount', 'updateAmount')->name('updateAmount');
+            // Route::post('delete/{entity}', 'destroy')->name('delete');
             
-            // Route::group(['middleware' => ['loggedIn']], function () {
-            //     Route::post('/addtocart/{entity}', 'addToCart')->name('addtocart');
-            //     Route::get('/index', 'index')->name('view_cart');
-            //     Route::post('/update-amount', 'updateAmount')->name('updateAmount');
-            //     Route::post('delete/{entity}', 'destroy')->name('delete');
-            // });
+            Route::group(['middleware' => ['auth:sanctum']], function () {
+                Route::post('/index', 'addToCart')->name('addtocart');
+                Route::get('/index', 'index')->name('view_cart');
+                Route::put('/index', 'updateAmount')->name('updateAmount');
+                Route::delete('index', 'destroy')->name('delete');
+            });
         });
     });
 
@@ -286,10 +291,16 @@ Route::group(['as' => 'api.'], function () {
     Route::group(['prefix' => 'order', 'as' => 'order.'], function () {
         Route::controller(OrderController::class)->group(function () {
             Route::group(['middleware' => ['loggedIn', 'throttle:100,1']], function () {
-                Route::get('/show/{entity}', 'show')->name('show');
+                // Route::get('/show/{entity}', 'show')->name('show');
                 Route::get('/', 'index')->name('index');
 
             });
+
+            // Route::group(['middleware' => ['auth:sanctum']], function () {
+                Route::get('/show/{entity}', 'show')->name('show');
+                // Route::get('/', 'index')->name('index');
+
+            // });
         });
     });
 

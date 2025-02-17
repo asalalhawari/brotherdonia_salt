@@ -63,8 +63,13 @@
 
 
 
-                    <img src="{{ asset($product->getFirstMediaUrl('products', 'full')) }}" class="w-100 d-flex mx-auto"
-                        id="image_1" />
+                    @if ($product->getFirstMediaUrl('products', 'full'))
+                    <img alt="cupcake" height="200" src="{{ asset($product->getFirstMediaUrl('products', 'full')) }}"
+                    width="250" />   
+                    @else
+                    <img alt="cupcake"  src="{{ asset('place.png') }}"
+                   class="img-fluid" /> 
+                    @endif
                 </a>
             </div>
 

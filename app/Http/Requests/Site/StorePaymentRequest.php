@@ -38,7 +38,7 @@ class StorePaymentRequest extends FormRequest
 
                 ]),
             ],
-            'amount' => 'required|string|numeric|min:1|max:5000',
+            // 'amount' => 'required|string|numeric|min:1|max:5000',
             'delivery_type' => [
                 'required',
                 Rule::in([

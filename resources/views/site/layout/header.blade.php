@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-text">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset('asset-files/imgs/logo.png') }}" alt="Company Logo" width="150" height="50" />
 
         </a>
@@ -15,17 +15,17 @@
                 </li>
 
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item ">
+                    <a class="nav-link " href="{{ route('mainshop') }}" id="navbarDropdown" role="button"
+                        >
                         المتجر
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{{ route('products.index', ['rtype' => 'inside']) }}">داخل
                                 الاردن</a></li>
                         <li><a class="dropdown-item" href="{{ route('products.index', ['rtype' => 'outside']) }}">خارج
                                 الاردن</a></li>
-                    </ul>
+                    </ul> --}}
                 </li>
 
 

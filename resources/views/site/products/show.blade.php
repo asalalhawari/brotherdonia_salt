@@ -7,8 +7,8 @@
 @section('css')
     <style>
         .carousel-item img {
-            width: 100%; 
-            height: auto; 
+            width: 100%;
+            height: auto;
         }
     </style>
 @endsection
@@ -32,11 +32,13 @@
                                 </div>
                             @endforeach
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly"
+                            data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly"
+                            data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -59,16 +61,21 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="note" class="required">@langucw('notes')</label>
-                            <input class="form-control" type="text" id="note" name="note" value="" placeholder="@langucw('notes')">
+                            <input class="form-control" type="text" id="note" name="note" value=""
+                                placeholder="@langucw('notes')">
                         </div>
                     </div>
+
+                    @include('components.product-special-image')
+
                     <div class="add-to-cart-div">
                         <div class="row">
                             <div class="col-md-2">
-                                @include('components.btn-number',['id'=>$product->id,'quantity'=>1])
+                                @include('components.btn-number', ['id' => $product->id, 'quantity' => 1])
                             </div>
                             <div class="col-md-10">
-                                <button class="add-to-cart-btn" href="javaScript:void(0)" onclick="addToCart"({{ $product->id }})">
+                                <button class="add-to-cart-btn" href="javaScript:void(0)"
+                                    onclick="addToCart({{ $product->id }})">
                                     أضف للسلة
                                 </button>
                             </div>
@@ -82,18 +89,64 @@
 @endsection
 
 @section('scripts')
-<script>
-    $('input[name=qty]').change(function () {
-        var quy = $(this).val();
-        var price = $(".d-price").attr('data-price');
-        $('.d-price-v').html(price * quy);
-    });
+    <script>
+        let uploadedDocumentMap = {};
+        Dropzone.options.productDropzone = {
+            url: '{{ route('cart.storeMedia') }}',
+            maxFilesize: 10, // MB
+            acceptedFiles: '.jpeg,.jpg,.png,.gif,.txt,.docx,.doc,.pdf',
+            maxFiles: 1,
+            addRemoveLinks: true,
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            success: function(file, response) {
+                $('form').append('<input type="hidden" id="productImage" name="image" value="' + response.name +
+                    '">')
+            },
+            removedfile: function(file) {
+                file.previewElement.remove();
+                let name = '';
+                if (typeof file.file_name !== 'undefined') {
+                    name = file.file_name;
+                } else {
+                    name = uploadedDocumentMap[file.name];
+                }
+                $('form').find('input[name="image"][value="' + name + '"]').remove();
+            },
+            init: function() {},
+            error: function(file, response) {
+                if ($.type(response) === 'string') {
+                    var message = response //dropzone sends it's own error messages in string
+                } else {
+                    var message = response.errors.file
+                }
+                file.previewElement.classList.add('dz-error')
+                _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
+                _results = []
+                for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                    node = _ref[_i]
+                    _results.push(node.textContent = message)
+                }
+                return _results
+            }
+        }
 
-    $('#OptID').change(function () {
-        var quy = $('input[name=qty]').val();
-        var price = $('#OptID option:selected').data('price');
-        $(".d-price").attr('data-price', price);
-        $('.d-price-v').html(price * quy);
-    });
-</script>
+        $('input[name=qty]').change(function() {
+            var quy = $(this).val();
+            var price = $(".d-price").attr('data-price');
+            $('.d-price-v').html(price * quy);
+        });
+
+        $('#OptID').change(function() {
+            var quy = $('input[name=qty]').val();
+            var price = $('#OptID option:selected').data('price');
+            var id = $('#OptID option:selected').val();
+
+            $(".d-price").attr('data-price', price);
+            $('.d-price-v').html(price * quy);
+            $('small').hide();
+            $('#small-'+id).show();
+        });
+    </script>
 @endsection

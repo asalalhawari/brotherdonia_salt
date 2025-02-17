@@ -27,9 +27,9 @@ class SubOption extends Model implements HasMedia
         'ModifierID',
     ];
 
-    public function setBlobAttribute(){
-        $this->attributes['blob'] = '';
-    }
+    // public function setBlobAttribute(){
+    //     $this->attributes['blob'] = '';
+    // }
     protected static $fieldStatusMapping = [
         'Available' => 'availableMapping',
     ];

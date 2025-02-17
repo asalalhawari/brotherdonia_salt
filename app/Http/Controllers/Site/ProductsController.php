@@ -30,7 +30,7 @@ class ProductsController extends Controller
     {
     }
 
-    public function index(Request $request, $rtype = null, Category $entity = null, Category $sub = null)
+    public function index(Request $request,  Category $entity = null, Category $sub = null)
     {
 
 
@@ -39,13 +39,13 @@ class ProductsController extends Controller
         if ($sub) {
             $products = $products->where('CatID', $sub->id);
         }
-        if ($rtype) {
+        // if ($rtype) {
             
-                $ids = Category::where('rtype', $rtype)->pluck('id')->toArray();
-                $products = $products->whereIn('CatID', $ids);
-                // $sub=Category::where('CatID',$entity->id)->first();
+        //         $ids = Category::where('rtype', $rtype)->pluck('id')->toArray();
+        //         $products = $products->whereIn('CatID', $ids);
+        //         // $sub=Category::where('CatID',$entity->id)->first();
             
-        }
+        // }
 
         if ($entity) {
             if ($sub == null) {

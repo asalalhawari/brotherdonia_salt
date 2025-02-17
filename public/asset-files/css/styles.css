@@ -101,9 +101,9 @@ body {
 }
 
 .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+    /* width: 100%; */
+    /* height: 200px; */
+    /* object-fit: cover; */
 }
 
 .product-card-content {
@@ -650,6 +650,33 @@ button.btn-next {
     .cart-table,
     .cart-summary {
         width: 100%;
+    }
+
+    .product-list.mys:after{
+        display: none !important;
+    }
+
+    
+    img.layer1.slide-layer {
+        width: 62px !important;
+    }
+    
+    img.layer2.slide-layer {
+        width: 115px !important;
+    }
+    
+    img.layer3.slide-layer {
+        width: 80px !important;
+    }
+    
+    
+    
+    .slider-content img {
+        width: 50px !important;
+    }
+    
+    .home-slider .slider-item > img:first-child {
+        height: 419px !important;
     }
 }
 thead {
@@ -1280,9 +1307,9 @@ body {
 }
 
 .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+    /* width: 100%; */
+    /* height: 200px; */
+    /* object-fit: cover; */
 }
 
 .product-card-content {
@@ -2974,8 +3001,8 @@ body {
 
 .product-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    /* height: 200px; */
+    /* object-fit: cover; */
 }
 
 .product-card-content {
@@ -4803,7 +4830,7 @@ span.cart-add.opened {
     }
 
     .sidebar ul li {
-        text-align: center;
+        /* text-align: center; */
     }
 
     .form-control {
@@ -5625,7 +5652,7 @@ span.cart-add.opened {
     }
 
     .sidebar ul li {
-        text-align: center;
+        /* text-align: center; */
     }
 
     .form-control {
@@ -5704,4 +5731,113 @@ span.cart-add.opened {
         width: 40px;
         height: 40px;
     }
+}
+
+
+h1.section-name.text-center.mt-3.mb-3.mainshopteam {
+    font-weight: bold;
+    color: #952022;
+    padding: 50px 0;
+}
+
+a.col-md-4.col-12.cat-item.aos-init.aos-animate {
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.col-md-4.col-12.cat-item.aos-init.aos-animate h3 {
+    text-decoration: none;
+    color: #caa761;
+}
+
+.product-card {
+    min-width: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-form {
+    background: white;
+    padding: 40px; 
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.contact-form  .form-title {
+    color: #C4962D;
+    margin-bottom: 30px; 
+    font-weight: 500;
+}
+
+.contact-form  .form-group {
+    margin-bottom: 20px; 
+}
+
+.contact-form  input,.contact-form  textarea {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    text-align: right;
+}
+
+.contact-form  input[type="tel"] {
+    direction: rtl;
+    text-align: right;
+}
+
+.contact-form  input::placeholder,
+.contact-form textarea::placeholder {
+    text-align: right;
+}
+
+.contact-form textarea {
+    min-height: 150px; 
+    resize: vertical;
+}
+
+.contact-form input:focus,.contact-form  textarea:focus {
+    border-color: #C4962D;
+}
+
+.contact-form .buttons {
+    display: flex;
+    gap: 15px; 
+    margin-top: 30px;
+}
+
+.contact-form button {
+    padding: 12px 25px; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; 
+    font-weight: 500;
+    flex: 1;
+}
+
+.contact-form .btn-cancel {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.contact-form .btn-submit {
+    background-color: #C4962D;
+    color: white;
+}
+
+.contact-form .btn-submit:hover {
+    background-color: #b3861f;
+}
+
+.contact-form .btn-cancel:hover {
+    background-color: #f5f5f5;
 }

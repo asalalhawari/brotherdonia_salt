@@ -10,14 +10,22 @@
         <div class="product-card ">
             <div class="product-img-wrapper">
                 <a href="{{ route('products.show', $product) }}">
-
+                    @if ($product->getFirstMediaUrl('products', 'full'))
                     <img alt="cupcake" height="200" src="{{ asset($product->getFirstMediaUrl('products', 'full')) }}"
-                        width="250" />
+                    width="250" />   
+                    @else
+                    <img alt="cupcake"  src="{{ asset('place.png') }}"
+                   class="img-fluid" /> 
+                    
+                   
+
+                       
+                        @endif
                 </a>
-                <span class="add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $product->id }}">
+                {{-- <span class="add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $product->id }}">
                     <i class="fa fa-shopping-cart"></i>
                     <span>اضف الى السلة</span>
-                </span>
+                </span> --}}
             </div>
 
             <a href="{{ route('products.show', $product) }}">

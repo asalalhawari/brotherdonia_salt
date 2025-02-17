@@ -184,42 +184,42 @@ class CartService
 
     public static function updateAmount($request)
     {
-
         $request = $request->all();
+
 
         if (isset($request['data']) && is_array($request['data'])) {
             $data = ($request['data']);
         } elseif (isset($request['data'])) {
-            $data = json_decode($request['data']);
+            $data = json_decode($request['data'], true);
         }
+        // return $data;
+
+
 
         foreach ($data ?? [] as $item) {
             try {
+
                 if (is_string($item)) {
-                    $item = json_decode($item);
-                }
-
-                if ($request['user_id']) {
-                    $user = User::find($request['user_id']);
-                    Auth::login($user);
-                    return Cart::where('user_id', auth()->user()->id)->where('id', $item->id)->update(['quantity' => $item->num]);
-
-                } else {
-                    if (isLogged()) {
-
-                        return Cart::where('user_id', getLogged()->id)->where('id', $item->id)->update(['quantity' => $item->num]);
-                    } else if (session()->has('temp_user_id')) {
-                        $temp_user_id = session()->get('temp_user_id');
-                        return Cart::where('temp_user_id', $temp_user_id)->where('id', $item->id)->update(['quantity' => $item->num]);
-                    }
+                    $item = json_decode($item, true);
                 }
 
 
+
+
+                $c = Cart::find($item['id']);
+
+                $c->quantity = $item['num'];
+
+                $c->save();
+
+                // return ['c'=>$c->id];
 
             } catch (\Exception $ex) {
-
+                return ['error' => $ex->getMessage()];
             }
         }
+
+        return ['success' => 'Cart updated successfully'];
     }
 
 

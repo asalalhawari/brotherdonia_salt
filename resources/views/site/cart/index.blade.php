@@ -23,7 +23,7 @@
                     <!-- Cart Table For Tablet & Up Devices End -->
                 </div>
                 <!-- Cart Table For Mobile Devices Start -->
-                @include('site.cart.mobile-devices')
+                {{-- @include('site.cart.mobile-devices') --}}
                 <!-- Cart Table For Mobile Devices End -->
 
                 <!-- Cart Totals Start -->

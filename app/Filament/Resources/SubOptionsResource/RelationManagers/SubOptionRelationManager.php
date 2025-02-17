@@ -27,8 +27,9 @@ class SubOptionRelationManager extends RelationManager
             Forms\Components\Toggle::make('Available')
                 ->label('Available')
                 ->default(true),
-            // Forms\Components\TextInput::make('blob')
-            //     ->maxLength(255),
+            Forms\Components\TextInput::make('blob')
+            ->label('note')
+                // ->maxLength(255),
             // Forms\Components\TextInput::make('ModifierID')
             //     ->numeric()
             //     ->label('Modifier ID'),

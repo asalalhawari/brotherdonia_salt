@@ -5,7 +5,7 @@
     $lastAppliedFilter = '';
     $originalBaseUrl = '{{ route('products.index') }}';
     // , ['main' => $categorySlug ?? null, 'sub' => $subcategorySlug ?? null]
-    $baseUrl = '{{ route('products.index',["rtype" => "inside"]) }}';
+    $baseUrl = '{{ route('products.index') }}';
 
 
     pageLinkEvent();

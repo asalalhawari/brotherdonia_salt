@@ -18,20 +18,27 @@ class CartController extends Controller
 
     public function index(Request $request)
     {
+        // dd(auth()->user());
 
         // dd($request['user_id']);
         $query = CartService::getCarts($request);
         return responder()->success($query)->respond();
 
     }
-    public function addToCart(Request $request, Item $entity)
+    public function addToCart(Request $request, )
     {
+        // dd(auth()->user());
+        // dd('alaa');
 
+        $entity = Item::find($request->id);
         $add_cart = CartService::addToCart($request, $entity);
+        // dd($add_cart);
         switch ($add_cart) {
             case Response::HTTP_OK:
-                $query = CartService::getCarts();
-                return responder()->success($query)->respond();
+                // $query = CartService::getCarts();
+                return responder()->success([
+                    'msg' => 'Added to cart successfully',
+                ])->respond();
             case Response::HTTP_INTERNAL_SERVER_ERROR:
                 return responder()->error(500, __('something went wrong'))->respond();
         }
@@ -39,19 +46,22 @@ class CartController extends Controller
     public function updateAmount(Request $request)
     {
         CartService::updateAmount($request);
-        return responder()->success()->respond();
+        return responder()->success(['msg' => 'cart updated successfully',])->respond();
     }
-    public function destroy($entity)
+    public function destroy(Request $request)
     {
-        try {
-            $entity = Cart::where('id', $entity)->first();
-            if ($entity) {
-                $entity->forceDelete();
-            }
-            return responder()->success('message', __('deleted successfully'))->respond();
-        } catch (\Exception $ex) {
-            return responder()->error(200, __('not found or already deleted'))->respond();
+
+        $entity = Cart::find($request->id);
+        if ($entity) {
+            $entity->forceDelete();
+            // return response()->json(['message'=> 'deleted successfully'],204);
+
+            return response()->json(['message' => 'deleted successfully'], 204);
         }
+
+        return responder()->error(['message' > 'not found'])->respond();
+
+
 
     }
 }

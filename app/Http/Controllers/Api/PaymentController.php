@@ -31,26 +31,26 @@ class PaymentController extends Controller
 
     public function redirectToPaymentGateway(StorePaymentRequest $request)
     {
-        
-            $shippingInfo = ShippingInfo::find($request->address_id);
-            if(!$shippingInfo){
-                
-                $shippingInfo = ShippingInfo::where('user_id',auth()->user()->id)->first(); 
-            }
-            if($shippingInfo){
-                $request['name'] = $shippingInfo->name;
-            $request['zone'] = $shippingInfo->zone_id;
-            $request['place'] = $shippingInfo->address;
-            }else{
 
-            }
+        $shippingInfo = ShippingInfo::find($request->address_id);
+        if (!$shippingInfo) {
+
+            $shippingInfo = ShippingInfo::where('user_id', auth()->user()->id)->first();
+        }
+        if ($shippingInfo) {
             // $request['name'] = $shippingInfo->name;
             // $request['zone'] = $shippingInfo->zone_id;
             // $request['place'] = $shippingInfo->address;
+        } else {
 
-            // dd(CartService::getCarts($request));
-        
-        
+        }
+        // $request['name'] = $shippingInfo->name;
+        // $request['zone'] = $shippingInfo->zone_id;
+        // $request['place'] = $shippingInfo->address;
+
+        // dd(CartService::getCarts($request));
+
+
 
         $paymentOrder = OrderService::storeFromRequest($request);
         // dd($paymentOrder);
@@ -66,7 +66,7 @@ class PaymentController extends Controller
                     if ($point > 0) {
                         getLogged()->chargePoints($point, 'new purchase points order no =' . $paymentOrder->id);
                     }
-                    return responder()->success(['id'=>$paymentOrder->id])->respond();
+                    return responder()->success(['id' => $paymentOrder->id])->respond();
                 case 'payment_by_credit_card':
                     $paymentOrder->Source = 2;
                     $paymentOrder->save();

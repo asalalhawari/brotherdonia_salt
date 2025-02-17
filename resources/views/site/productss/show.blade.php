@@ -69,7 +69,6 @@
                     </div>
                 </div> --}}
             
-        {{-- @include('components.product-special-image') --}}
                 {{-- <div class="row mx-0 mt-3">
                     <div class="col-lg-6">
                         <label>Cake Type</label>

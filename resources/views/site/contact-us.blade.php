@@ -15,7 +15,7 @@
     <!-- Contact form section Start -->
     <div class="container">
         <h2>تواصل معنا</h2>
-        <form method="POST" action="{{ route('contact_us.send') }}">
+        <form method="POST" class="contact-form" action="{{ route('contact_us.send') }}">
             @csrf
             <div class="form-group">
                 <input type="text" name="name" placeholder="الاسم" value="{{ old('name') }}">

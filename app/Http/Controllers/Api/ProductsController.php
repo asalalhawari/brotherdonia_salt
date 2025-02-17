@@ -8,6 +8,8 @@ use App\Http\Requests\Admin\ProductsRequest;
 use App\Http\Requests\Admin\SubCategoriesRequest;
 use App\Http\Requests\Admin\UpdateMainCategoriesRequest;
 use App\Http\Requests\Admin\UpdateProductsRequest;
+use App\Http\Resources\CategoryResource;
+use App\Http\Resources\ProductResource;
 use App\Models\Category;
 use App\Models\Item;
 use App\Models\Photo;
@@ -24,18 +26,53 @@ use DataTables;
 
 class ProductsController extends Controller
 {
-    public function __construct(public ItemRepository $productRepo, public GenralSettingRepository $genralSettingRepository){}
+    public function __construct(public ItemRepository $productRepo, public GenralSettingRepository $genralSettingRepository)
+    {
+    }
 
     public function index(Request $request)
     {
+        $lang = ($request->hasHeader('lang')) ? $request->header('lang') : 'en';
+        // dd($lang);
+
         $query = Item::select('*');
         if ($request->filled('category')) {
-            $query = $query->where('CatID', $request->category);
+            $query =Category::where('CatID', $request->category)->paginate(10);
+            $data =[];
+            foreach($query as $category) {
+                if($lang == 'en'){
+                    $data[$category->NameEN] = ProductResource::collection($category->product);
+                }
+                else{
+                    $data[$category->Name] = ProductResource::collection($category->product);
+                }
+            }
+            
+            return response()->json([
+                'status' => 200,
+                'success' => true,
+                'data' => $data,
+            ], 200);
+
         }
         if ($request->filled('search')) {
-            $searchFor = strip_tags( str_replace(['\\', '/', ';', '\'', '(', ')'], '', $request->search) );
+            $searchFor = strip_tags(str_replace(['\\', '/', ';', '\'', '(', ')'], '', $request->search));
             $query = $query->where('Name', 'LIKE', '%' . $searchFor . '%')->orWhere('NameEN', 'LIKE', '%' . $searchFor . '%');
         }
+        return response()->json([
+                'status' => 200,
+                'success' => true,
+                'data' => ProductResource::collection($query->paginate(10)),
+            ], 200);
+    }
+
+
+    public function bestSelling( Request $request ){
+        $limet = 10;
+        if ($request->filled('limet')) {
+            $limet = $request->limet;
+        }
+        $query = $this->productRepo->getBestSellersProducts($limet);
         return responder()->success($query)->respond();
     }
 
@@ -56,7 +93,9 @@ class ProductsController extends Controller
     }
 
 
-    public function create(){}
+    public function create()
+    {
+    }
 
     public function flashSale(Request $request)
     {
@@ -75,53 +114,64 @@ class ProductsController extends Controller
         }
         return responder()->success($data)->respond();
     }
-    public function optionDetil(Item $entity){
+    public function optionDetil(Item $entity)
+    {
 
-        $options= $entity->optionDetil->groupBy('POptID');
-        $data= [];
-        foreach($options??[] as $optin){
+        $options = $entity->optionDetil->groupBy('POptID');
+        $data = [];
+        foreach ($options ?? [] as $optin) {
 
-            $data[$optin[0]->id]=
+            $data[$optin[0]->id] =
                 [
-                    'id'=>$optin[0]->id,
-                    'title_ar'=>$optin[0]->subOption->itemOption->Name,
-                    'title_en'=>$optin[0]->subOption->itemOption->NameEN
+                    'id' => $optin[0]->id,
+                    'title_ar' => $optin[0]->subOption->itemOption->Name,
+                    'title_en' => $optin[0]->subOption->itemOption->NameEN
                 ];
-            foreach($optin as $i=>$item){
-                $data[$optin[0]->id]['optin'][$i]=
+            foreach ($optin as $i => $item) {
+                $data[$optin[0]->id]['optin'][$i] =
                     [
-                    'id'=>$item->subOption->id,
-                    'title_ar'=>$item->subOption->Name,
-                    'title_en'=>$item->subOption->NameEN,
-                    'AdditionalValue'=>$item->AdditionalValue
-                ];
+                        'id' => $item->subOption->id,
+                        'title_ar' => $item->subOption->Name,
+                        'title_en' => $item->subOption->NameEN,
+                        'AdditionalValue' => $item->AdditionalValue
+                    ];
             }
         }
-        return responder()->success(['options'=>$data])->respond();
+        return responder()->success(['options' => $data])->respond();
     }
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductsRequest $request){}
+    public function store(ProductsRequest $request)
+    {
+    }
 
     /**
      * Display the specified resource.
      */
-    public function show(Item $category){ }
+    public function show(Item $category)
+    {
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Item $entity){}
+    public function edit(Item $entity)
+    {
+    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductsRequest $request, Item $entity){}
+    public function update(UpdateProductsRequest $request, Item $entity)
+    {
+    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request, Item $entity){}
+    public function destroy(Request $request, Item $entity)
+    {
+    }
 
 }

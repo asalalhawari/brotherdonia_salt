@@ -31,7 +31,7 @@ class Order extends Model implements Transformable
         'ZonePrice',
         'Total',
         'Discount',
-        'AddValue',
+        // 'AddValue',
         'Points',
         'Status',
         'Note',
@@ -46,6 +46,8 @@ class Order extends Model implements Transformable
         'add_value',
         'before_amount',
     ];
+    
+    
 
 
     public static function boot()
@@ -53,7 +55,17 @@ class Order extends Model implements Transformable
         parent::boot();
 
         self::updated(function ($model) {
-            // $model->add_value = 0;
+
+            
+            if ($model->action_type == 'full' &&  $model->PaymentMethod != 2) {
+                $model->PaymentMethod = 2;
+                $model->save();
+            }
+    
+            if ($model->action_type == 'cash' && $model->PaymentMethod != 0) {
+                $model->PaymentMethod = 0;
+                $model->save();
+            }
         });
 
     }
@@ -66,6 +78,9 @@ class Order extends Model implements Transformable
                 break;
             case 'payment_by_credit_card':
                 $this->attributes['PaymentMethod'] = 1;
+                break;
+            case 'zain':
+                $this->attributes['PaymentMethod'] = 2;
                 break;
         }
 
@@ -84,6 +99,8 @@ class Order extends Model implements Transformable
                 return 'cash on delivery';
             case 1:
                 return 'pay by credit card';
+            case 2:
+                return 'Zain Cash';
 
         }
     }
@@ -106,8 +123,28 @@ class Order extends Model implements Transformable
             case 'invoiced':
                 $this->attributes['Status'] = 4;
                 break;
+
+            case 'hold':
+                $this->attributes['Status'] = 100;
+                break;
         }
     }
+
+    // public function setActionTypeAttribute($value)
+    // {
+    //     $this->attributes['action_type'] = $value;
+    //     // if($this->attributes['id'] == null){
+    //     //     return;
+    //     // }
+    //     if ($value == 'full') {
+    //         $this->attributes['PaymentMethod'] = 2;
+    //     }
+
+    //     if ($value == 'cash') {
+    //         $this->attributes['PaymentMethod'] = 0;
+    //     }
+
+    // }
 
     public function getStatusAttribute($value)
     {

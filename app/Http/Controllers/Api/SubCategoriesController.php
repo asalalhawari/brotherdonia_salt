@@ -23,7 +23,7 @@ class SubCategoriesController extends Controller
         if($request->filled('main')){
             $query=$query->where('CatID',$request->main);
         }
-        return responder()->success($query)->respond();
+        return responder()->success($query->paginate(10))->respond();
     }
 
     public function create()

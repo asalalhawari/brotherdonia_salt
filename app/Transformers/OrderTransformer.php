@@ -3,6 +3,7 @@
 namespace App\Transformers;
 use App\Models\Order;
 use Flugg\Responder\Transformers\Transformer;
+use PhpParser\Node\Expr\Cast\Double;
 
 class OrderTransformer extends Transformer
 {
@@ -22,6 +23,7 @@ class OrderTransformer extends Transformer
             'Phone' => $order->Phone,
             'ZonePrice' => $order->ZonePrice,
             'Total' => $order->Total,
+            'ItemsTotal' => (double)$order->Total - (double)$order->ZonePrice,
             'AddValue' => $order->AddValue,
             'Discount' => $order->Discount,
             'Points' => $order->Points,
@@ -29,6 +31,7 @@ class OrderTransformer extends Transformer
             'Branch' => ['AddresAr' => $order?->branch?->AddresAr, 'AddresEn' => $order?->branch?->AddresEn],
             'Source' => $order->Source,
             'Note' => $order->Note,
+            'created_at' => $order->created_at,
             'optionDetil' => $this->order_details($order)
         ];
     }

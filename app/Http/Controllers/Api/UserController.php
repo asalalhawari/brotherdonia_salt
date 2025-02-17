@@ -56,4 +56,12 @@ class UserController extends Controller
         return $this->whoAmI();
     }
 
+    public function points(){
+        $user = getLogged();
+        return responder()->success([
+            'points' => (int)$user->totalPoints(),
+            'money'=> (int)getLogged()->convertPointstoMoney(getLogged()->totalPoints())
+        ])->respond();
+    }
+
 }

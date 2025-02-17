@@ -16,9 +16,16 @@ class OrderController extends Controller
 {
     public function __construct(public GenralSettingRepository $genralSettingRepository){
     }
-    public function index(){
+    public function index(Request $request){
 
-        $query= Order::where('UserID', getLogged()->id)->paginate(10);
+        if ($request->filled('type') == 'old') {
+            $query= Order::where('UserID', getLogged()->id)->where('status','!=',0)->paginate(10);
+
+        }else{
+
+            $query= Order::where('UserID', getLogged()->id)->where('status',0)->paginate(10);
+        }
+
         return responder()->success($query)->respond();
 
     }
