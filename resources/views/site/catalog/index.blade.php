@@ -90,7 +90,7 @@
         </style>
     </head>
     <body>
-        <h1 class="catalog-title">كتالوج الكيك</h1>
+        <h1 class="catalog-title" style="text-align:center;padding:50px;">كتالوج الكيك</h1>
         
         <div class="slider-container">
             <img src="{{ asset('asset-files/imgs/d5390461-a5d2-4e41-b0da-cac1d919665c.jfif') }}" alt="كيك شوكولاتة" class="slider-image active">
