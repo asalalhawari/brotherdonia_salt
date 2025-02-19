@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SliderResource\Pages;
 use App\Models\Slide;
-use App\Models\Slider;
 use Filament\Forms;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
@@ -20,11 +19,7 @@ class SliderResource extends Resource
     protected static ?string $navigationLabel = 'Sliders';
     protected static ?string $navigationGroup = 'Settings';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
-    
-
     protected static ?int $navigationSort = 22;
-
 
     public static function form(Form $form): Form
     {   
@@ -35,7 +30,6 @@ class SliderResource extends Resource
                 ->required(),
             Forms\Components\TextInput::make('url')
                 ->label('Text')
-
                 ->nullable(),
             Forms\Components\TextInput::make('index')
                 ->label('Order Index')
@@ -43,17 +37,26 @@ class SliderResource extends Resource
                 ->default(0)
                 ->required(),
             SpatieMediaLibraryFileUpload::make('image')
-                ->collection('slider'),
-            SpatieMediaLibraryFileUpload::make('layer1')
-                ->label('Layer One')
-                ->collection('layer1'),
-            SpatieMediaLibraryFileUpload::make('layer2')
-                ->label('Layer Tow')
-                ->collection('layer2')
-            ,
-            SpatieMediaLibraryFileUpload::make('layer3')
-                ->label('Layer Three')
-                ->collection('layer3')
+                ->collection('slider')
+                ->multiple() // السماح برفع أكثر من صورة
+                ->enableReordering() // تمكين إعادة الترتيب
+                ->preserveFilenames() // الحفاظ على أسماء الملفات الأصلية
+                ->enableOpen() // تمكين عرض الصورة عند النقر عليها
+                ->enableDownload() // تمكين تحميل الصور
+                ->imageEditor() // تمكين تعديل الصور داخل Filament
+                ->label('Slider Images')
+                ->afterStateUpdated(function ($state, $set) {
+                    // إضافة تحويلات عند تحميل الصورة
+                    if ($state) {
+                        $state->each(function ($file) {
+                            $file->addMediaConversion('full')
+                                ->width(1920)  // تحديد العرض
+                                ->height(1080) // تحديد الارتفاع
+                                ->sharpen(10)  // تعيين الحدة
+                                ->performOnCollections('slider');
+                        });
+                    }
+                }),
         ]);
     }
 
@@ -64,7 +67,7 @@ class SliderResource extends Resource
                 Tables\Columns\TextColumn::make('title')->label('Title')->searchable(),
                 Tables\Columns\TextColumn::make('url')->label('URL'),
                 Tables\Columns\TextColumn::make('index')->label('Order Index')->sortable(),
-                SpatieMediaLibraryImageColumn::make('Image')->collection('slider'),
+                SpatieMediaLibraryImageColumn::make('image')->collection('slider'),
                 Tables\Columns\TextColumn::make('created_at')->label('Created At')->dateTime()->sortable(),
             ])
             ->filters([])

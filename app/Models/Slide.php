@@ -9,6 +9,7 @@ use Flugg\Responder\Contracts\Transformable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Slide extends Model implements HasMedia,Transformable
 {
@@ -34,4 +35,15 @@ class Slide extends Model implements HasMedia,Transformable
     {
         return SliderTransformer::class;
     }
+
+    public function registerAllMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaConversion('full')
+        ->width(1920)  // تحديد العرض
+        ->height(1080) // تحديد الارتفاع
+        ->sharpen(10); // ضبط حدة الصورة
+}
+
+    
+    
 }

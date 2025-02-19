@@ -1,4 +1,4 @@
-@php
+{{-- @php
     // dd($product->getFirstMediaUrl('products','large'));
 @endphp
 <div class="col-lg-6 offset-lg-0 col-md-10 offset-md-1">
@@ -69,4 +69,4 @@
 </div>
 
 
-@include('site.products.image-modal')
+@include('site.products.image-modal') --}}
