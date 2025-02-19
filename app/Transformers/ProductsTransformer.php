@@ -12,6 +12,12 @@ class ProductsTransformer extends Transformer
     protected $load = [];
     public function transform(Item $item)
     {
+
+        $images = [];
+
+        foreach($item->getMedia('products') as $index => $image){
+            $images[] =   asset($image->getUrl());
+        }
         return [
             'id' => $item->id,
             'CatID' => $item->CatID,
@@ -34,11 +40,8 @@ class ProductsTransformer extends Transformer
                 'medium' => asset($item->getFirstMediaUrl('products', 'medium')),
                 'small' => asset($item->getFirstMediaUrl('products', 'small')),
             ],
-            'other_image' => [
-                'large' => asset($item->getFirstMediaUrl('attached_products', 'large')),
-                'medium' => asset($item->getFirstMediaUrl('attached_products', 'medium')),
-                'small' => asset($item->getFirstMediaUrl('attached_products', 'small')),
-            ],
+            'other_image' => $images,
+
         ];
     }
     public function optionDetil(Item $entity)

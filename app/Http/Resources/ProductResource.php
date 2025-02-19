@@ -15,6 +15,12 @@ class ProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        
+        $images = [];
+
+        foreach($this->getMedia('products') as $index => $image){
+            $images[] =   asset($image->getUrl());
+        }
         return [
             'id' => $this->id,
             'CatID' => $this->CatID,
@@ -37,11 +43,7 @@ class ProductResource extends JsonResource
                 'medium' => asset($this->getFirstMediaUrl('products', 'medium')),
                 'small' => asset($this->getFirstMediaUrl('products', 'small')),
             ],
-            'other_image' => [
-                'large' => asset($this->getFirstMediaUrl('attached_products', 'large')),
-                'medium' => asset($this->getFirstMediaUrl('attached_products', 'medium')),
-                'small' => asset($this->getFirstMediaUrl('attached_products', 'small')),
-            ],
+            'other_image' => $images,
         ];
     }
 

@@ -22,7 +22,7 @@ class ZonesTransformer extends Transformer
             'id' => $zones->id,
             'name_ar' => $zones->AddresAr,
             'name_en' => $zones->AddresEn,
-            'delivery' => $this->getDelivery($zones),
+            'delivery' => (double)$this->getDelivery($zones),
 
         ];
     }
