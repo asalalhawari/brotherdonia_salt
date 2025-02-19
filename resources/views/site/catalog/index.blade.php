@@ -93,7 +93,7 @@
         <h1 class="catalog-title" style="text-align:center;padding:50px;">كتالوج الكيك</h1>
         
         <div class="slider-container">
-            <img src="{{ asset('asset-files/imgs/d5390461-a5d2-4e41-b0da-cac1d919665c.jfif') }}" alt="كيك شوكولاتة" class="slider-image active">
+            <img src="{{ asset('asset/imgs/db0da-cac1d919665c.jfif') }}" alt="كيك شوكولاتة" class="slider-image active">
             <img src="{{ asset('asset-files/imgs/ed23b6ae-3394-4fcf-b30b-74aa1d25e4e9.jfif') }}" alt="كيك فانيليا" class="slider-image">
             <img src="{{ asset('asset-files/imgs/Simple and Creative Birthday Cake Decorating Ideas You Can Try at Home.jfif') }}" alt="كيك فراولة" class="slider-image">
             <img src="{{ asset('asset-files/imgs/download.jfif') }}" alt="كيك توت" class="slider-image">
