@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\GeneralSettingResource\Pages;
 use App\Models\GeneralSetting;
 use Filament\Forms;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -29,7 +30,22 @@ class GeneralSettingResource extends Resource
                 Forms\Components\TextInput::make('Currency')
                     ->label('Currency')
                     ->required(),
-              
+
+
+                Forms\Components\TextInput::make('about')
+                    ->label('About')
+                    ->required(),
+
+                SpatieMediaLibraryFileUpload::make('about1')
+                    ->label('About Image 1')
+                    ->multiple()
+                    ->collection('about_image_one'),
+
+                SpatieMediaLibraryFileUpload::make('about2')
+                    ->label('About Image 2')
+                    ->multiple()
+                    ->collection('about_image_tow'),
+
                 Forms\Components\TextInput::make('WhatsApp')
                     ->label('WhatsApp Number')
                     ->tel(),
@@ -39,7 +55,7 @@ class GeneralSettingResource extends Resource
                 Forms\Components\Toggle::make('DeliveryFirstOrder')
                     ->label('Free Delivery on First Order')
                     ->required(),
-                
+
                 Forms\Components\Textarea::make('OrderMessage')
                     ->label('Order Message (Arabic)')
                     ->required(),
@@ -55,6 +71,48 @@ class GeneralSettingResource extends Resource
                 Forms\Components\TextInput::make('AppVersion')
                     ->label('Application Version')
                     ->required(),
+
+                    Forms\Components\TextInput::make('title1')
+                    ->label('Title 1')
+                    ->required(),
+                    Forms\Components\TextInput::make('des1')
+                    ->label('Description 1')
+                    ->required(),
+
+
+                    Forms\Components\TextInput::make('title2')
+                    ->label('Title 2')
+                    ->required(),
+                    Forms\Components\TextInput::make('des2')
+                    ->label('Description 2')
+                    ->required(),
+
+                    Forms\Components\TextInput::make('title3')
+                    ->label('Title 3')
+                    ->required(),
+                    Forms\Components\TextInput::make('des3')
+                    ->label('Description 3')
+                    ->required(),
+
+                    Forms\Components\TextInput::make('facebook')
+                    ->columnSpan(2)
+                    ->required(),
+                    Forms\Components\TextInput::make('linkedin')
+                    ->columnSpan(2)
+                    ->required(),
+                    Forms\Components\TextInput::make('instagram')
+                    ->columnSpan(2)
+                    ->required(),
+                    Forms\Components\TextInput::make('address')
+                    ->columnSpan(2)
+                    ->required(),
+                    Forms\Components\TextInput::make('email')
+                    ->columnSpan(2)
+                    ->required(),
+                    Forms\Components\TextInput::make('phone_number')
+                    ->columnSpan(2)
+                    ->required(),
+
             ]);
     }
 

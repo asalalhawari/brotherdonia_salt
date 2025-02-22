@@ -5,7 +5,7 @@
                 <label for="colorBy">{{$optin[0]->subOption->itemOption->getTitle()}}</label>
                 <div class="select-wrapper">
                     <select att="{{$optin[0]->subOption->itemOption->id}}" id="OptID" name="OptID"
-                            class="selectCom form-control w-100  ">
+                            class="selectCom form-select form-control w-100  ">
                         @foreach($optin as $item)
                             <option data-price="{{$item->AdditionalValue + $product->Price}}"  value="{{$item->id}}">
                                 {{ \Config::get('app.locale') == 'en' ? $item->subOption['NameEN'] : $item->subOption['Name'] }}

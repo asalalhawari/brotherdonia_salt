@@ -22,30 +22,35 @@
 @section('content')
     <div class="main-wrapper">
         <div class="container">
-            <div class="product">
-                <div class="product-images">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-                        <div class="carousel-inner">
-                            @foreach ($product->getMedia('products') as $index => $image)
-                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                    <img alt="product" src="{{ $image->getUrl() }}" />
-                                </div>
-                            @endforeach
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+            <div class="row">
+                <div class="product-images col-md-6">
+                    <div class="pro-imags">
+
+
+                        @foreach ($product->getMedia('products') as $index => $image)
+                            <div class="swiper-slide">
+                                <img src="{{ $image->getUrl() }}" alt="Image" />
+                            </div>
+                        @endforeach
+
+
+                    </div>
+
+
+                    <div class="pro-imags-nav" style="width: 50%">
+
+
+                        @foreach ($product->getMedia('products') as $index => $image)
+                            <div class="">
+                                <img src="{{ $image->getUrl() }}" alt="Image"  />
+                            </div>
+                        @endforeach
+
+
                     </div>
                 </div>
 
-                <div class="product-details">
+                <div class="product-details col-md-6">
                     <h1>{{ $product->getTitle() }}</h1>
                     <div class="price">
                         <span class="d-price" data-price="{{ $product->price() }}"></span>
@@ -146,7 +151,7 @@
             $(".d-price").attr('data-price', price);
             $('.d-price-v').html(price * quy);
             $('small').hide();
-            $('#small-'+id).show();
+            $('#small-' + id).show();
         });
     </script>
 @endsection

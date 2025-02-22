@@ -38,25 +38,7 @@ class SliderResource extends Resource
                 ->required(),
             SpatieMediaLibraryFileUpload::make('image')
                 ->collection('slider')
-                ->multiple() // السماح برفع أكثر من صورة
-                ->enableReordering() // تمكين إعادة الترتيب
-                ->preserveFilenames() // الحفاظ على أسماء الملفات الأصلية
-                ->enableOpen() // تمكين عرض الصورة عند النقر عليها
-                ->enableDownload() // تمكين تحميل الصور
-                ->imageEditor() // تمكين تعديل الصور داخل Filament
-                ->label('Slider Images')
-                ->afterStateUpdated(function ($state, $set) {
-                    // إضافة تحويلات عند تحميل الصورة
-                    if ($state) {
-                        $state->each(function ($file) {
-                            $file->addMediaConversion('full')
-                                ->width(1920)  // تحديد العرض
-                                ->height(1080) // تحديد الارتفاع
-                                ->sharpen(10)  // تعيين الحدة
-                                ->performOnCollections('slider');
-                        });
-                    }
-                }),
+                
         ]);
     }
 

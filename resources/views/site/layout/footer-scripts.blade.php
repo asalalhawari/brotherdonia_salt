@@ -1,6 +1,5 @@
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
@@ -21,6 +20,30 @@
         $('.main-slider').slick({
             rtl: true
         });
+
+
+        $('.pro-imags').slick({
+            rtl: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+
+            fade: true,
+            asNavFor: '.pro-imags-nav',
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+
+        $('.pro-imags-nav').slick({
+            rtl: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: '.pro-imags',
+            dots: true,
+            centerMode: true,
+            focusOnSelect: true
+        });
+
+
     });
 
 

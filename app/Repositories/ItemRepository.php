@@ -38,7 +38,7 @@ class ItemRepository implements RepositoryInterface
         }
         return [];
     }
-    public function getMostViewedProducts($limet = 10)
+    public function getMostViewedProducts($limet = 12)
     {
         return Item::orderBy('Views')->take($limet)->get();
     }

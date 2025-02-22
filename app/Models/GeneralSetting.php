@@ -3,15 +3,18 @@
 namespace App\Models;
 
 
+use App\Models\Traits\HasMediaTrait;
 use App\Transformers\GenralInfoTransformer;
 use App\Transformers\GenralSettingTransformer;
 use Flugg\Responder\Contracts\Transformable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
 
-class GeneralSetting extends Model implements Transformable
+class GeneralSetting extends Model implements Transformable, HasMedia
 {
     use HasFactory;
+    use HasMediaTrait;
 
     protected $fillable = [
         'Currency',
@@ -25,6 +28,19 @@ class GeneralSetting extends Model implements Transformable
         'Thanks',
         'ThanksEN',
         'AppVersion',
+        'about',
+        'title1',
+        'title2',
+        'title3',
+        'des1',
+        'des2',
+        'des3',
+        'facebook',
+        'linkedin',
+        'instagram',
+        'address',
+        'email',
+        'phone_number',
     ];
 
 
