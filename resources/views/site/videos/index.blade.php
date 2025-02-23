@@ -1,15 +1,13 @@
 @extends('site.layout.master')
-@section('title', 'الفيديوهات')
+@section('title', __('Videos'))
 @section('content')
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html dir="rtl" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فيديوهات خاصة</title>
+    <title>{{ __('Private Videos') }}</title>
     <style>
-     
-
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -82,28 +80,28 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="title">فيديوهات خاصة</h2>
+        <h2 class="title">{{ __('Private Videos') }}</h2>
         <div class="videos-grid">
             <div class="video-item">
-                <img src="{{ asset('images/download.jfif') }}" alt="حلويات طبقات">
+                <img src="{{ asset('images/download.jfif') }}" alt="{{ __('Layered Sweets') }}">
                 <div class="video-overlay">
                     <div class="play-button"></div>
                 </div>
             </div>
             <div class="video-item">
-                <img src="{{ asset('images/d5390461-a5d2-4e41-b0da-cac1d919665c.jfif') }}" alt="كيك شوكولاتة">
+                <img src="{{ asset('images/d5390461-a5d2-4e41-b0da-cac1d919665c.jfif') }}" alt="{{ __('Chocolate Cake') }}">
                 <div class="video-overlay">
                     <div class="play-button"></div>
                 </div>
             </div>
             <div class="video-item">
-                <img src="{{ asset('images/Simple and Creative Birthday Cake Decorating Ideas You Can Try at Home.jfif') }}" alt="حلى كريمي">
+                <img src="{{ asset('images/Simple and Creative Birthday Cake Decorating Ideas You Can Try at Home.jfif') }}" alt="{{ __('Creamy Dessert') }}">
                 <div class="video-overlay">
                     <div class="play-button"></div>
                 </div>
             </div>
             <div class="video-item">
-                <img src="{{ asset('images/ed23b6ae-3394-4fcf-b30b-74aa1d25e4e9.jfif') }}" alt="حلويات مغطاة بالسكر">
+                <img src="{{ asset('images/ed23b6ae-3394-4fcf-b30b-74aa1d25e4e9.jfif') }}" alt="{{ __('Sugar-coated Sweets') }}">
                 <div class="video-overlay">
                     <div class="play-button"></div>
                 </div>
