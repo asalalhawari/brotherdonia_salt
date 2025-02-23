@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "labels": {
     "shop_now": "تسوق الآن",
     "previous": "السابق",
@@ -10,9 +9,7 @@
     "inside_jordan": "داخل الاردن",
     "outside_jordan": "خارج الاردن",
     "download_app": "تحميل التطبيق",
-    "contact_us": "تواصل معنا",
     "home": "الصفحة الرئيسية",
-=======
     "labels": {
       "shop_now": "تسوق الآن",
       "previous": "السابق",
@@ -46,12 +43,10 @@
     "working_hours": "مواعيد العمل",
     "from_9_to_5": "من 9 صباحاً وحتى الـ 5 مساءً",
     "contact_us": "تواصل معنا",
->>>>>>> d98bd893fc7228ed658fdfe0af6d164df6b5422c
     "name": "الاسم",
     "email": "البريد الإلكتروني",
     "phone": "رقم الهاتف",
     "write_message": "اكتب رسالتك هنا ...",
-<<<<<<< HEAD
     "confirm": "تأكيد"
   },
   "about_us_section": {
@@ -72,17 +67,8 @@
   "email": "البريد الإلكتروني",
   "phone": "رقم الهاتف",
   "write_your_message_here": "اكتب رسالتك هنا ...",
-  "confirm": "تأكيد",
-  "cancel": "إلغاء",
-  "about_us": "من نحن",
-  "home": "الصفحة الرئيسية",
   "shop now": "تسوق الآن",
-  "previous": "السابق",
-  "next": "التالي",
   "dont miss an occasion": "لا تضيع مناسبة بنوصلك وين ما كنت",
-  "categories": "الاقسام",
-  "inside_jordan": "داخل الاردن",
-  "outside_jordan": "خارج الاردن",
   "download_the_app": "تحميل التطبيق",
   "About Us":"ماذا عنا",
   "Categories":"الاقسام",
@@ -98,11 +84,7 @@
   "Catalog":"كتالوج",
   "Videos":"فيديوهات خاصة",
   "Welcome":"مرحبا",
-  "My Profile":"صفحتي الشخصيه"
-
-
-}
-=======
+  "My Profile":"صفحتي الشخصيه",
     "confirm": "تأكيد",
     "cancel": "إلغاء",
     "about_us": "من نحن",
@@ -156,4 +138,3 @@
       }
   }
   
->>>>>>> d98bd893fc7228ed658fdfe0af6d164df6b5422c
