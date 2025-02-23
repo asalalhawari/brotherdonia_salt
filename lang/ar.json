@@ -79,13 +79,36 @@
     "cart_total": "اجمالي السلة",
     "subtotal": "المجموع الفرعي",
     "login": "تسجيل الدخول",
-    
+
     "shipping_info": {
         "title": "معلومات الشحن",
         "name": "الاسم",
         "phone": "رقم الهاتف",
         "zone": "المنطقة",
         "shipping_info_text": "معلومات الشحن"
-      }
+      },
+      
+      
+  
+  "forgot_password": "نسيت كلمة المرور؟",
+ 
+  "register": "تسجيل",
+ 
+  
+  "create_account": "إنشاء حساب",
+  
+  "password": "كلمة المرور",
+  "select_country": "اختر الدولة",
+  "egypt": "مصر",
+  "usa": "الولايات المتحدة",
+  "saudi_arabia": "المملكة العربية السعودية",
+  "uae": "الإمارات العربية المتحدة",
+  "jordan": "الأردن",
+  "select_currency": "اختر العملة",
+  "egyptian_pound": "الجنيه المصري",
+  "us_dollar": "الدولار الأمريكي",
+  "saudi_riyal": "الريال السعودي",
+  "uae_dirham": "الدرهم الإماراتي",
+  "jordanian_dinar": "الدينار الأردني"
   }
   
