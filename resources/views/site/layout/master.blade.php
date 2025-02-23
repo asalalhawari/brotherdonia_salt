@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html class="no-js" lang="{{ \Config::get('app.locale') == 'en' ? 'en' : 'ar' }}"
+    dir="{{ \Config::get('app.locale') == 'en' ? 'ltr' : 'rtl' }}">
 
 
 @include('site.layout.head')

@@ -18,7 +18,7 @@
                             <img src="{{ asset('asset-files/imgs/slider/logo.gif') }}" alt="" class="slider-logo">
                             <h1>{{ __($slider->title) }}</h1>
                             <p>{{ __($slider->url) }}</p>
-                            <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('تسوق الآن') }}</a>
+                            <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('shop now') }}</a>
                         </div>
                     </div>
                 @endforeach
@@ -36,7 +36,7 @@
 
     <section class="intro">
         <span data-aos="fade-up">
-            {{ __('لا تضيع مناسبة بنوصلك وين ما كنت') }}
+            {{ __('dont miss an occasion') }}
         </span>
     </section>
 
@@ -59,12 +59,12 @@
                 <div class="col-12 col-md-6" data-aos="fade-right">
                     <h3 class="outheadein">
                         <span class="hh"></span>
-                        {{ __('ماذا عنا') }}
+                        {{ __('About Us') }}
                     </h3>
                     <p>
                         {{ __($about->about) }}
                     </p>
-                    <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('تسوق الآن') }}</a>
+                    <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('Shop Now') }}</a>
                 </div>
             </div>
         </div>
@@ -72,16 +72,16 @@
 
     <section class="cats">
         <div class="container">
-            <h3 class="outheadein">{{ __('الاقسام') }}</h3>
+            <h3 class="outheadein">{{ __('Categories') }}</h3>
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                        type="button" role="tab" aria-controls="home" aria-selected="true">{{ __('داخل الاردن') }}</button>
+                        type="button" role="tab" aria-controls="home" aria-selected="true">{{ __('Inside Jordan') }}</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
-                        role="tab" aria-controls="profile" aria-selected="false">{{ __('خارج الاردن') }}</button>
+                        role="tab" aria-controls="profile" aria-selected="false">{{ __('Outside Jordan') }}</button>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -113,7 +113,7 @@
 
     <section class="download">
         <div class="container">
-            <h3 class="">{{ __('تحميل التطبيق') }}</h3>
+            <h3 class="">{{ __('Download App') }}</h3>
             <div class="dlinks">
                 <img src="{{ asset('asset-files/imgs/a.png') }}" />
                 <img src="{{ asset('asset-files/imgs/g.png') }}" />
