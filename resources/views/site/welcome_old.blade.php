@@ -1,4 +1,4 @@
-@extends('site.layout.master')
+{{-- @extends('site.layout.master')
 @section('title') Main Categories @endsection
 @section('css') @endsection
 @section('breadcrumb') @endsection
@@ -288,4 +288,4 @@
 
 @endsection
 
-@section('js') @endsection
+@section('js') @endsection --}}
