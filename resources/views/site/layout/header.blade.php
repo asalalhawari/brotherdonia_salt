@@ -11,13 +11,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">الرئيسية</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">{{ __('Home') }}</a>
                 </li>
 
 
                 <li class="nav-item ">
                     <a class="nav-link " href="{{ route('mainshop') }}" id="navbarDropdown" role="button">
-                        المتجر
+                        {{ __('Shop') }}
                     </a>
                     {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{{ route('products.index', ['rtype' => 'inside']) }}">داخل
@@ -29,25 +29,30 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('about-us') }}">من نحن</a>
+                    <a class="nav-link active" aria-current="page"
+                        href="{{ route('about-us') }}">{{ __('About Us') }}</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('our_branches.show') }}">الفروع</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('catalog') }}">كتالوج</a>
+                    <a class="nav-link active" aria-current="page"
+                        href="{{ route('our_branches.show') }}">{{ __('Branchs') }}</a>
                 </li>
 
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('videos') }}">فيديوهات خاصة</a>
+                    <a class="nav-link active" aria-current="page"
+                        href="{{ route('catalog') }}">{{ __('Catalog') }}</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                        href="{{ route('videos') }}">{{ __('Videos') }}</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('contact_us.show') }}">تواصل معنا</a>
+                    <a class="nav-link active" aria-current="page"
+                        href="{{ route('contact_us.show') }}">{{ __('Contact Us') }}</a>
                 </li>
 
             </ul>
@@ -55,6 +60,7 @@
 
             @auth
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    
 
                     <li>
                         <div class="search-icon">
@@ -74,16 +80,34 @@
                         </div>
                     </li>
 
+                    <li>
+                       
+                        @if (strtolower(getLang()) == 'en')
+                            <a href="{{ route('app.change_language', ['lang' => 'ar']) }}"
+                                class="btn btn-transparent-outline mx-2 action flag">
+                                عربي
+
+                            </a>
+                        @endif
+                        @if (strtolower(getLang()) == 'ar')
+                            <a href="{{ route('app.change_language', ['lang' => 'en']) }}"
+                                class="btn btn-transparent-outline mx-2 action flag">
+                                English
+
+                            </a>
+                        @endif
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
 
-                            مرحبا يا
+                            {{ __('Welcome') }}
                             {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{ route('myprofile.index') }}">
-                                    صفحتي الشخصيه
+                                    {{ __('My Profile') }}
 
                                 </a></li>
 
@@ -91,21 +115,47 @@
                     </li>
                 </ul>
             @else
-                <div class="search-icon">
-                    <svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"
-                        width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path
-                            d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3  c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2  c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2  c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z" />
-                    </svg>
-                    <form class="search" action="{{ route('products.index') }}">
-                        @csrf
-                        <input type="text" @if (isset($_GET['search'])) value="{{ $_GET['search'] }}" @endif
-                            name="search" class="form-control search-input @if (isset($_GET['search'])) open @endif"
-                            placeholder="ابحث عن منتجاتك...">
-                    </form>
-                </div>
-                <a href="{{ route('login') }}" class="login-button">تسجيل الدخول</a>
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li>
+                    <div class="search-icon">
+                        <svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"
+                            width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path
+                                d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3  c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2  c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2  c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z" />
+                        </svg>
+                        <form class="search" action="{{ route('products.index') }}">
+                            @csrf
+                            <input type="text" @if (isset($_GET['search'])) value="{{ $_GET['search'] }}" @endif
+                                name="search" class="form-control search-input @if (isset($_GET['search'])) open @endif"
+                                placeholder="ابحث عن منتجاتك...">
+                        </form>
+                    </div>
+                </li>
+                
+                <li>
+                    @if (strtolower(getLang()) == 'en')
+                        <a href="{{ route('app.change_language', ['lang' => 'ar']) }}"
+                            class="btn btn-transparent-outline mx-2 action flag">
+                            عربي
+
+                        </a>
+                    @endif
+                    @if (strtolower(getLang()) == 'ar')
+                        <a href="{{ route('app.change_language', ['lang' => 'en']) }}"
+                            class="btn btn-transparent-outline mx-2 action flag">
+                            English
+
+                        </a>
+                    @endif
+                </li>
+                <li>
+                    <a href="{{ route('login') }}" class="login-button">تسجيل الدخول</a>
+
+                </li>
+            </ul>
+
+                
             @endauth
 
         </div>

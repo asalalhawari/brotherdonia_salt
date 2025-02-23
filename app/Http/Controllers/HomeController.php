@@ -25,8 +25,8 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
-        $request->session()->put('app_language', strtolower('ar'));
-        App::setLocale(strtolower($request->lang));
+        // $request->session()->put('app_language', strtolower('ar'));
+        // App::setLocale(strtolower($request->lang));
 
         if(isLogged()){
            // getLogged()->setPreferenceByName('user.notification_language', $request->lang);

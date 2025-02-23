@@ -21,12 +21,12 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
                     <div class="contact">
-                        <h3>للتواصل</h3>
+                        <h3>{{ __('Contact') }}</h3>
                         <p>
                             {{ $about->address }}
                         </p>
-                        <p>البريد الإلكتروني: {{ $about->email }}</p>
-                        <p>الهاتف: {{ $about->phone_number }}</p>
+                        <p> {{ __('Email') }}: {{ $about->email }}</p>
+                        <p>{{ __('Phone') }}: {{ $about->phone_number }}</p>
                     </div>
                 </div>
 
