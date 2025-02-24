@@ -58,9 +58,11 @@
 .pro-imags-nav .swiper-slide {
     padding: 15px;
 }
+ @if (strtolower(getLang()) == 'ar')
 .form-select {
     background-position: 20px;
 }
+@endif
 
 .cat-item {
     position: relative;

@@ -19,6 +19,7 @@ class CartTransformer extends Transformer
             'quantity'=>$item->quantity,
             'OptID'=>str_replace("'", '', $item->OptID) ,
             'note'=>$item->Note,
+            'price'=>$item->price,
             'image'=>$item->getFirstMediaUrl('images','large')?asset($item->getFirstMediaUrl('images','large'))??'':'',
         ];
     }

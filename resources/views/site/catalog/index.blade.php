@@ -6,7 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>كتالوج الكيك</title>
+        <title>{{ __('Catalog') }}</title>
         <style>
          
 
@@ -90,27 +90,9 @@
         </style>
     </head>
     <body>
-        <h1 class="catalog-title" style="text-align:center;padding:50px;">كتالوج الكيك</h1>
+        <h1 class="catalog-title" style="text-align:center;padding:50px;">{{ __('Catalog') }}</h1>
         
-        <div class="slider-container">
-            <img src="{{ asset('asset/imgs/db0da-cac1d919665c.jfif') }}" alt="كيك شوكولاتة" class="slider-image active">
-            <img src="{{ asset('asset-files/imgs/ed23b6ae-3394-4fcf-b30b-74aa1d25e4e9.jfif') }}" alt="كيك فانيليا" class="slider-image">
-            <img src="{{ asset('asset-files/imgs/Simple and Creative Birthday Cake Decorating Ideas You Can Try at Home.jfif') }}" alt="كيك فراولة" class="slider-image">
-            <img src="{{ asset('asset-files/imgs/download.jfif') }}" alt="كيك توت" class="slider-image">
-            <img src="{{ asset('asset-files/imgs/b269fc0d-a0f4-46be-99ef-8e7b5f746ac1.jfif') }}" alt="كيك برتقال" class="slider-image">
-            
-            <button class="nav-button prev">❮</button>
-            <button class="nav-button next">❯</button>
-            
-            <div class="dots-container">
-                <span class="dot active" data-index="0"></span>
-                <span class="dot" data-index="1"></span>
-                <span class="dot" data-index="2"></span>
-                <span class="dot" data-index="3"></span>
-                <span class="dot" data-index="4"></span>
-            </div>
-        </div>
-
+       <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" src="https://heyzine.com/flip-book/1a2f815101.html" style="border: 1px solid lightgray; width: 100%; height: 400px;"></iframe>
         <script>
             const images = document.querySelectorAll('.slider-image');
             const dots = document.querySelectorAll('.dot');

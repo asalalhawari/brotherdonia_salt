@@ -21,7 +21,7 @@
                     </svg>
                     
             </span>
-            <span class="step-title">العنـــوان</span>
+            <span class="step-title">{{ __('Address') }}</span>
         </div><!-- /.step -->
 
 
@@ -33,7 +33,7 @@
                     
                     
             </span>
-            <span class="step-title">طريقة الدفع</span>
+            <span class="step-title">{{ __('Payment Method') }}</span>
         </div><!-- /.step -->
 
 
@@ -46,7 +46,7 @@
                     
                     
             </span>
-            <span class="step-title">الفاتورة</span>
+            <span class="step-title">{{ __('Invoice')  }}</span>
         </div><!-- /.step -->
     </div>
 </div>
@@ -54,8 +54,8 @@
 <section class="address">
     <div class="container">
         <div class="addressh">
-            <h3>العنوان المراد التوصيل اليه</h3>
-            <a href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal2">إضافة عنوان</a>
+            <h3>{{ __('Pick Address')  }}</h3>
+            <a href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal2">{{ __('Add Address') }}</a>
         </div>
     
         <div class="adreeslist">
@@ -79,7 +79,7 @@
 
 
 <div class="container">
-    <div class="btn btn-primary cs" onclick="nextFun()"> @langucw('التالي')</div>
+    <div class="btn btn-primary cs" onclick="nextFun()"> @langucw('next')</div>
 
 </div>
     {{-- <div class="container mt-10">

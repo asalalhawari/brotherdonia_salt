@@ -23,7 +23,9 @@
 
 
         $('.pro-imags').slick({
+              @if (strtolower(getLang()) == 'ar')
             rtl: true,
+            @endif
             slidesToShow: 1,
             slidesToScroll: 1,
 
@@ -34,7 +36,9 @@
         });
 
         $('.pro-imags-nav').slick({
+             @if (strtolower(getLang()) == 'ar')
             rtl: true,
+            @endif
             slidesToShow: 3,
             slidesToScroll: 1,
             asNavFor: '.pro-imags',

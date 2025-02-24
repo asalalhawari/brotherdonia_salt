@@ -64,7 +64,7 @@
                     <p>
                         {{ __($about->about) }}
                     </p>
-                    <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('Shop Now') }}</a>
+                    <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('shop now') }}</a>
                 </div>
             </div>
         </div>
@@ -110,6 +110,8 @@
             </div>
         </div>
     </section>
+    
+    @include('site.home.most-viewed-widget')
 
     <section class="download">
         <div class="container">

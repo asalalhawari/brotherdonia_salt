@@ -111,13 +111,13 @@
                 <div class="single-method form-check">
                     <input checked  {{$special==1?'disabled ':''}}  value="cash_on_delivery" class="form-check-input" type="radio" id="payment_type1" name="payment-method">
                     <label class="form-check-label" for="payment_type1">@langucw('cash on delivery')</label>
-                    <p>@langucw('الدفع عن الاستلام')</p>
+                    <p>@langucw('Cash on Delevery')</p>
                 </div>
         
                 <div class="single-method form-check">
                     <input disabled  value="payment_by_credit_card" class="form-check-input" type="radio" id="payment_type2" name="payment-method">
                     <label class="form-check-label" for="payment_type2">@langucw('Payment by credit card')</label>
-                    <p>@langucw('الدفع اونلاين')</p>
+                    <p>@langucw('Visa')</p>
                 </div>
         
                 

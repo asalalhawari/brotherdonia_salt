@@ -72,10 +72,9 @@
                             </svg>
                             <form class="search" action="{{ route('products.index') }}">
                                 @csrf
-                                <input type="text"
-                                    @if (isset($_GET['search'])) value="{{ $_GET['search'] }}" @endif name="search"
-                                    class="form-control search-input @if (isset($_GET['search'])) open @endif"
-                                    placeholder="ابحث عن منتجاتك...">
+                                <input type="text" @if (isset($_GET['search'])) value="{{ $_GET['search'] }}" @endif
+                                name="search" class="form-control search-input @if (isset($_GET['search'])) open @endif"
+                                placeholder="{{ __('Search for your Products ..') }}">
                             </form>
                         </div>
                     </li>
@@ -128,7 +127,7 @@
                             @csrf
                             <input type="text" @if (isset($_GET['search'])) value="{{ $_GET['search'] }}" @endif
                                 name="search" class="form-control search-input @if (isset($_GET['search'])) open @endif"
-                                placeholder="ابحث عن منتجاتك...">
+                                placeholder="{{ __('Search for your Products ..') }}">
                         </form>
                     </div>
                 </li>
@@ -150,7 +149,7 @@
                     @endif
                 </li>
                 <li>
-                    <a href="{{ route('login') }}" class="login-button">تسجيل الدخول</a>
+                    <a href="{{ route('login') }}" class="login-button">{{ __('login') }}</a>
 
                 </li>
             </ul>

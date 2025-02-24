@@ -6,6 +6,8 @@ use App\Models\Cart;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Response;
+use App\Models\OptionDetil;
+
 
 class CartService
 {
@@ -22,27 +24,50 @@ class CartService
             //     $data['temp_user_id'] = $temp_user_id;
             //     $carts = Cart::where('temp_user_id', $temp_user_id)->get();
             // }
+        
+            $request['user_id'] = auth()?->user()?->id;
 
-            if ($request['user_id'] && $request['user_id'] > 0) {
-                $user = User::find($request['user_id']);
-                Auth::login($user);
+        if ($request['user_id'] && $request['user_id'] > 0) {
+            $user = User::find($request['user_id']);
+            // Auth::login($user);
 
-                $data['user_id'] = $request['user_id'];
-                $carts = Cart::where('user_id', $request['user_id'])->get();
-            } else {
-                $temp_user_id = self::createTempUser($request);
-                // dd(session()->get('temp_user_id'));
+            $data['user_id'] = $request['user_id'];
+            $carts = Cart::where('user_id', $request['user_id'])->get();
+        } else {
+            $temp_user_id = self::createTempUser($request);
+            // dd(session()->get('temp_user_id'));
 
-                $data['temp_user_id'] = $temp_user_id;
-                $carts = Cart::where('temp_user_id', $temp_user_id)->get();
+            $data['temp_user_id'] = $temp_user_id;
+            $carts = Cart::where('temp_user_id', $temp_user_id)->get();
+        }
+        
+        $data['price'] = $entity->Price;
+        
+        if ($request->data) {
+
+            // $data['price']  = 0;
+
+            if (is_string($request->data)) {
+                $request->data = json_decode($request->data, true); // Decode the string into an array
             }
+
+            foreach ($request->data as $opt) {
+                $o = OptionDetil::where('OptID', $opt)->first();
+                if ($o) {
+                    $data['price'] += $o->AdditionalValue;
+                }
+            }
+        }
+        
+        
+        
             $data['quantity'] = $request['quantity'] == null ? 1 : $request['quantity'];
-            $data['price'] = ($request->price > 0) ? $request->price : $entity->price();
+            
             $data['Note'] = $request['note'] != null ? $request['note'] : '';
 
             $data['tax'] = $tax;
             $data['product_id'] = $entity->id;
-            $data['OptID'] = ($request->data);
+            $data['OptID'] = json_encode($request->data);
             $data['shipping_cost'] = 0;
             $data['address_id'] = 0;
             $data['discount'] = 0;
@@ -76,7 +101,7 @@ class CartService
             }
             return Response::HTTP_OK;
         } catch (\Exception $ex) {
-            // dd($ex->getMessage());
+            dd($ex->getMessage());
             return Response::HTTP_INTERNAL_SERVER_ERROR;
         }
     }
@@ -118,7 +143,7 @@ class CartService
         }
         // dd(isLogged());
 
-        if (isLogged()) {
+        if (auth()->user()) {
 
             return Cart::where('user_id', auth()->user()->id)->get();
         } else if (session()->has('temp_user_id')) {

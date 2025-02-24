@@ -49,6 +49,8 @@ class PaymentController extends Controller
         // $request['place'] = $shippingInfo->address;
 
         // dd(CartService::getCarts($request));
+        
+          $request['zone'] = $request->zone_id;
 
 
 

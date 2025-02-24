@@ -14,7 +14,7 @@
 
 @section('content')
 <div class="branches">
-    <h2>@lang('Branches')</h2>
+    <h2>{{ __('Branches') }}</h2>
     @foreach($branches??[] as $index=>$branche)
     <div class="branch-card">
         <img src="{{ asset( $branche->getFirstMediaUrl('branche','full') ) }}" alt="@lang('Branch 1')">

@@ -134,7 +134,7 @@ class Item extends Model implements HasMedia,Transformable
         return  $this->getLang()=='en'?$this->NameEN: $this->Name;
     }
     public function getDescription(){
-        return  $this->getLang()=='en'?$this->Description: $this->DescriptionEN;
+        return  $this->getLang()=='ar'?$this->Description: $this->DescriptionEN;
     }
     public function optionDetil(){
         return $this->hasMany(OptionDetil::class,'ItemID');

@@ -31,11 +31,11 @@
                         </div>
                     </td>
                     <td>
-                        {{$cart->item->getTitle()}} ({{$cart->price}})
+                        {{$cart->item->getTitle()}}
                         @if($cart->optionDetil())
                             @foreach($cart->optionDetil()->get() ?? [] as $option)
                                 <br>
-                                <span>{{$option->subOption->getTitle()}} ({{$cart->price}})</span>
+                                <span>{{$option->subOption->getTitle()}} </span>
                             @endforeach
                         @endif
                     </td>

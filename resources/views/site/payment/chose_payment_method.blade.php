@@ -37,7 +37,8 @@
                         </svg>
                         
                 </span>
-                <span class="step-title">العنـــوان</span>
+                <span class="step-title">{{ __('Address') }}</span>
+
             </div><!-- /.step -->
     
     
@@ -49,7 +50,8 @@
                         
                         
                 </span>
-                <span class="step-title">طريقة الدفع</span>
+                <span class="step-title">{{ __('Payment Method') }}</span>
+
             </div><!-- /.step -->
     
     
@@ -62,7 +64,8 @@
                         
                         
                 </span>
-                <span class="step-title">الفاتورة</span>
+                <span class="step-title">{{ __('Invoice')  }}</span>
+
             </div><!-- /.step -->
         </div>
     </div>

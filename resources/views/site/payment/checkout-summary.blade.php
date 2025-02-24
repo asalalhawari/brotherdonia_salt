@@ -1,12 +1,12 @@
 <div class="checkout-box">
 
-    <h4 class="mb-4">{{ __('المجموع') }}</h4>
+    <h4 class="mb-4">{{ __('Total') }}</h4>
 
     <table class="">
         <thead>
             <tr>
-                <th>{{ __('المنتج') }}</th>
-                <th>{{ __('المجموع الفرعي') }}</th>
+                <th>{{ __('Product') }}</th>
+                <th>{{ __('sub total') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -36,24 +36,24 @@
 
             
             <tr style="border-top:1px solid #ddd;margin-top:20px">
-                <td class="border-top">@langucw('المجموع الفرعي')</td>
+                <td class="border-top">@langucw('sub total')</td>
                 <td class="border-top"><span id="subtotal">{{ number_format((float) $subtotal, 2, '.', '') }}</span>
                     {{ $currency }}</td>
             </tr>
             <tr>
-                <td class="border-top">@langucw('سعر التوصيل')</td>
+                <td class="border-top">@langucw('delevery price')</td>
                 <td class="border-top">
                     <span id="delivery_price">{{ $delivery_price }}</span> {{ $currency }}
                 </td>
             </tr>
             <tr>
-                <td class="border-top">{{ trans('خصومات') }}</td>
+                <td class="border-top">{{ trans('discount') }}</td>
                 <td class="border-top">
                     <span id="discount">{{ number_format((float) $discount, 2, '.', '') }}</span> {{ $currency }}
                 </td>
             </tr>
             <tr>
-                <td class="border-top">@langucw('النقاط')</td>
+                <td class="border-top">@langucw('points')</td>
                 <td class="border-top">
                     <span id="points">{{ number_format((float) $point_price, 2, '.', '') }}</span>
                     {{ $currency }}
@@ -62,7 +62,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <th class="border-top">@langucw('المجموع')</th>
+                <th class="border-top">@langucw('Total')</th>
                 <th class="border-top">
                     <span
                         id="total">{{ number_format((float) ($subtotal - $discount + $delivery_price), 2, '.', '') }}</span>

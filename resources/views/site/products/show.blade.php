@@ -56,7 +56,7 @@
                         <span class="d-price" data-price="{{ $product->price() }}"></span>
                         <span class="d-price-v">{{ $product->price() }}</span> {{ $genralSetting->getCurrency() }}
                     </div>
-                    <p>{!! $product->Description !!}</p>
+                    <p>{!! $product->getDescription() !!}</p>
                     @php
                         $options = $product->optionDetil->groupBy('POptID');
                     @endphp
@@ -81,13 +81,17 @@
                             <div class="col-md-10">
                                 <button class="add-to-cart-btn" href="javaScript:void(0)"
                                     onclick="addToCart({{ $product->id }})">
-                                    أضف للسلة
+                                    {{ __('Add to Cart') }} 
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <br>
+            
+            @include('site.home.most-viewed-widget')
 
         </div>
     </div>

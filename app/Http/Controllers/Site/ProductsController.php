@@ -66,7 +66,7 @@ class ProductsController extends Controller
                 'search' => $request->search ?? '',
                 'genralSetting' => $this->genralSettingRepository,
                 'sub_category' => $sub ?? null,
-                'products' => $products->paginate(config('core.setting.perPage')),
+                'products' => $products->get(),
                 'page' => $request->page ?? 0,
 
             ])->render();
@@ -79,7 +79,7 @@ class ProductsController extends Controller
             'search' => $request->search ?? '',
             'genralSetting' => $this->genralSettingRepository,
             'sub_category' => $sub ?? null,
-            'products' => $products->paginate(config('core.setting.perPage')),
+            'products' => $products->get(),
             'page' => $request->page ?? 0
         ]);
     }

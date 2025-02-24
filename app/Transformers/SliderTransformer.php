@@ -17,9 +17,9 @@ class SliderTransformer extends Transformer
                 'title'=>$slide->title,
                 'url'=>$slide->url,
             'image'=>[
-                'large'=>asset($slide->getFirstMediaUrl('slider', 'large')),
-                'medium'=>asset($slide->getFirstMediaUrl('slider', 'medium')),
-                'small'=>asset($slide->getFirstMediaUrl('slider', 'small')),
+                'large'=>asset($slide->getFirstMediaUrl('slider', 'full')),
+                'medium'=>asset($slide->getFirstMediaUrl('slider', 'full')),
+                'small'=>asset($slide->getFirstMediaUrl('slider', 'full')),
             ],
         ];
     }

@@ -5841,3 +5841,8 @@ a.col-md-4.col-12.cat-item.aos-init.aos-animate h3 {
 .contact-form .btn-cancel:hover {
     background-color: #f5f5f5;
 }
+
+.navbar .login-button {
+
+    display: block;
+}

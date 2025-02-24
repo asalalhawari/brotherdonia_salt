@@ -80,7 +80,7 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="title">{{ __('Private Videos') }}</h2>
+        <h2 class="title" style="text-align: center">{{ __('Private Videos') }}</h2>
         <div class="videos-grid">
             <div class="video-item">
                 <img src="{{ asset('images/download.jfif') }}" alt="{{ __('Layered Sweets') }}">
