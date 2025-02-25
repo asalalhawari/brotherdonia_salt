@@ -46,8 +46,8 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page"
-                        href="{{ route('videos') }}">{{ __('Videos') }}</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('videos') }}">{{ __('Videos') }}</a>
+
                 </li>
 
                 <li class="nav-item">

@@ -2,7 +2,9 @@
   "labels": {
     "shop_now": "تسوق الآن",
     "Shop Now": "تسوق الآن",
+    "Shop now": "تسوق الان",
     "previous": "السابق",
+    "All products":"كل المنتجات ",
     "next": "التالي",
     "dont_miss_occasion": "لا تضيع مناسبة بنوصلك وين ما كنت",
     "about_us": "من نحن",
@@ -179,5 +181,9 @@
   "payment method":"طريقه الدفع",
   "":"",
   "":"",
-  "":""
+  "":"",
+  "products" : "المنتجات",
+  "home" : "الرئيسية",
+  "Product" : "المنتج",
+  " all_products" : "كل المنتجات "
 }

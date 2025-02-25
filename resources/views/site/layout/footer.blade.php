@@ -13,7 +13,7 @@
                         </p>
                         <div class="social-icons">
                             <a class="ms-3" href="{{ $about->instagram }}"><i class="fab fa-instagram"></i></a>
-                            <a class="ms-3" href="{{ $about->linkedin }}"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="ms-3" href="{{ $about->tiktok }}"><i class="fab fa-tiktok"></i></a>
                             <a class="ms-3" href="{{ $about->facebook }}"><i class="fab fa-facebook"></i></a>
                         </div>
                     </div>

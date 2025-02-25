@@ -25,7 +25,9 @@
                             {{ $main_category->Name }}
                         
                         @else 
-                            كل المنتجات
+                    
+                        {{ __("كل المنتجات") }}
+
                         @endif
                     </h2>
                 </div>

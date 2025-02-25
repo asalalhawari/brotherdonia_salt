@@ -97,7 +97,8 @@ class GeneralSettingResource extends Resource
                     Forms\Components\TextInput::make('facebook')
                     ->columnSpan(2)
                     ->required(),
-                    Forms\Components\TextInput::make('linkedin')
+                    Forms\Components\TextInput::make('tiktok')
+
                     ->columnSpan(2)
                     ->required(),
                     Forms\Components\TextInput::make('instagram')

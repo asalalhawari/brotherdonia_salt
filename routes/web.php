@@ -6,8 +6,12 @@ use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+
+
+
 use App\Http\Controllers\ScrollController;
 use App\Models\Order;
+use App\Http\Controllers\VideoController;
 use App\Models\User;
 use Devinweb\LaravelHyperpay\Facades\LaravelHyperpay;
 use Illuminate\Http\Request;
@@ -325,3 +329,17 @@ Route::post('register', [\App\Http\Controllers\Site\Auth\AuthController::class, 
 
 
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+
+
+
+
+Route::get('/videos', [VideosController::class, 'index'])->name('videos.index');
+
+
+
+Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
+
+
+
+
+Route::get('/videos', [VideoController::class, 'index'])->name('videos');
