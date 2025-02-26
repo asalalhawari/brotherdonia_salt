@@ -49,9 +49,9 @@
                     @endphp
 <style>
     .tall-img {
-        height: 200%;  
+        height: 100%;  /* عرض الصورة بالطول الكامل */
         object-fit: cover;  
-        width: 200%; 
+        width: 100%; 
     }
 
     .image-container {
@@ -63,13 +63,33 @@
 
     .p-2 img {
         width: 100%;
-        height: auto;
+        height: 100%;  
         object-fit: cover;
     }
 
     .text-container {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 30px; 
+    }
+
+    .col-md-3 {
+        height: 100%; 
+    }
+
+    .col-md-6 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+  
+    .tall-img-left, .tall-img-right {
+        height: 130%;  
+        object-fit: cover;
+    }
+
+    .center-img {
+        width: 130%;  /
+        object-fit: cover;
     }
 </style>
 
@@ -77,23 +97,22 @@
     <div class="row">
         <div class="col-md-3" data-aos="fade-right">
             <div class="image-container">
-                <img src="{{ asset($about->getFirstMediaUrl('about_image_one','full')) }}" class="img-fluid tall-img" />
+                <img src="{{ asset($about->getFirstMediaUrl('about_image_one','full')) }}" class="img-fluid tall-img-left" />
             </div>
         </div>
 
-       
         <div class="col-md-6 d-flex flex-wrap justify-content-between">
             <div class="col-6 p-2" data-aos="fade-up">
-                <img src="{{ asset($about->getFirstMediaUrl('about_image_tow','full')) }}" class="img-fluid" />
+                <img src="{{ asset($about->getFirstMediaUrl('about_image_two','full')) }}" class="img-fluid center-img" />
             </div>
             <div class="col-6 p-2" data-aos="fade-down">
-                <img src="{{ asset($about->getFirstMediaUrl('about_image_three','full')) }}" class="img-fluid" />
+                <img src="{{ asset($about->getFirstMediaUrl('about_image_three','full')) }}" class="img-fluid center-img" />
             </div>
         </div>
 
         <div class="col-md-3" data-aos="fade-left">
             <div class="image-container">
-                <img src="{{ asset($about->getFirstMediaUrl('about_image_four','full')) }}" class="img-fluid tall-img" />
+                <img src="{{ asset($about->getFirstMediaUrl('about_image_four','full')) }}" class="img-fluid tall-img-right" />
             </div>
         </div>
     </div>
@@ -107,10 +126,11 @@
             <p>
                 {{ __($about->about) }}
             </p>
-            <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('shop now') }}</a>
+            <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('Shop Now') }}</a>
         </div>
     </div>
 </div>
+
 
     </section>
 
