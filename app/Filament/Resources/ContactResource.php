@@ -42,7 +42,7 @@ class ContactResource extends Resource
                     ->required(),
                 Forms\Components\Textarea::make('Message')
                     ->label('Message')
-                    ->disabled(), // لجعل الرسالة قابلة للقراءة فقط
+                    ->disabled(), 
                 Forms\Components\Textarea::make('Replay')
                     ->label('Reply'),
                 Forms\Components\Toggle::make('IsReaded')
