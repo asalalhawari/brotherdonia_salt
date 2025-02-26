@@ -48,7 +48,7 @@ class GeneralSettingResource extends Resource
                     SpatieMediaLibraryFileUpload::make('about3')
                     ->label('About Image 3')
                     ->multiple()
-                    ->collection('about_image_tree'),
+                    ->collection('about_image_three'),
                     SpatieMediaLibraryFileUpload::make('about4')
                     ->label('About Image 4')
                     ->multiple()
