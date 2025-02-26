@@ -47,27 +47,71 @@
                     @php
                         $about = \App\Models\GeneralSetting::find(1);
                     @endphp
-                    <div class="row">
-                        <div class="col-6 c-align" data-aos="fade-up">
-                            <img src="{{ asset($about->getFirstMediaUrl('about_image_one','full')) }}" class="img-fluid" />
-                        </div>
-                        <div class="col-6" data-aos="fade-down">
-                            <img src="{{ asset($about->getFirstMediaUrl('about_image_tow','full')) }}" class="img-fluid" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6" data-aos="fade-right">
-                    <h3 class="outheadein">
-                        <span class="hh"></span>
-                        {{ __('About Us') }}
-                    </h3>
-                    <p>
-                        {{ __($about->about) }}
-                    </p>
-                    <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('shop now') }}</a>
-                </div>
+<style>
+    .tall-img {
+        height: 200%;  
+        object-fit: cover;  
+        width: 200%; 
+    }
+
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .p-2 img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .text-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" data-aos="fade-right">
+            <div class="image-container">
+                <img src="{{ asset($about->getFirstMediaUrl('about_image_one','full')) }}" class="img-fluid tall-img" />
             </div>
         </div>
+
+       
+        <div class="col-md-6 d-flex flex-wrap justify-content-between">
+            <div class="col-6 p-2" data-aos="fade-up">
+                <img src="{{ asset($about->getFirstMediaUrl('about_image_tow','full')) }}" class="img-fluid" />
+            </div>
+            <div class="col-6 p-2" data-aos="fade-down">
+                <img src="{{ asset($about->getFirstMediaUrl('about_image_three','full')) }}" class="img-fluid" />
+            </div>
+        </div>
+
+        <div class="col-md-3" data-aos="fade-left">
+            <div class="image-container">
+                <img src="{{ asset($about->getFirstMediaUrl('about_image_four','full')) }}" class="img-fluid tall-img" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-container" data-aos="fade-right">
+            <h3 class="outheadein">
+                <span class="hh"></span>
+                {{ __('About Us') }}
+            </h3>
+            <p>
+                {{ __($about->about) }}
+            </p>
+            <a href="{{ route('mainshop') }}" class="slider-btn btn btn-pink">{{ __('shop now') }}</a>
+        </div>
+    </div>
+</div>
+
     </section>
 
     <section class="cats">

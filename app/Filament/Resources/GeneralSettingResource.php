@@ -45,6 +45,15 @@ class GeneralSettingResource extends Resource
                     ->label('About Image 2')
                     ->multiple()
                     ->collection('about_image_tow'),
+                    SpatieMediaLibraryFileUpload::make('about3')
+                    ->label('About Image 3')
+                    ->multiple()
+                    ->collection('about_image_tree'),
+                    SpatieMediaLibraryFileUpload::make('about4')
+                    ->label('About Image 4')
+                    ->multiple()
+                    ->collection('about_image_four'),
+                    
 
                 Forms\Components\TextInput::make('WhatsApp')
                     ->label('WhatsApp Number')
