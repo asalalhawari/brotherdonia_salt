@@ -343,3 +343,7 @@ Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
 
 
 Route::get('/videos', [VideoController::class, 'index'])->name('videos');
+
+
+Route::get('/occasions/booking', 'OccasionController@create')->name('occasions.create');
+Route::post('/occasions', 'OccasionController@store')->name('occasions.store');

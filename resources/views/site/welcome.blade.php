@@ -62,7 +62,7 @@
     }
 
     .p-2 img {
-        width: 100%;
+        width: 400%;
         height: 100%;  
         object-fit: cover;
     }
@@ -83,12 +83,12 @@
 
   
     .tall-img-left, .tall-img-right {
-        height: 130%;  
+        height: 250%;  
         object-fit: cover;
     }
 
     .center-img {
-        width: 130%;  /
+        width: 200%;  
         object-fit: cover;
     }
 </style>
