@@ -2,7 +2,8 @@
 <html class="no-js" lang="{{ \Config::get('app.locale') == 'en' ? 'en' : 'ar' }}"
     dir="{{ \Config::get('app.locale') == 'en' ? 'ltr' : 'rtl' }}">
 
-
+<head>
+    
 @include('site.layout.head')
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
@@ -98,6 +99,9 @@ body {
     /* overflow-x: hidden; */
 }
 </style>
+
+@yield('css')
+</head>
 
 
 <body>

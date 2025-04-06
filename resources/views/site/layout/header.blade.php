@@ -9,7 +9,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul class="mx-auto mb-2 navbar-nav mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('home') }}">{{ __('Home') }}</a>
                 </li>
@@ -49,7 +49,10 @@
                     <a class="nav-link active" aria-current="page" href="{{ route('videos') }}">{{ __('Videos') }}</a>
 
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                        href="{{ route('occasions.index') }}">{{ __('Occasions') }}</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
                         href="{{ route('contact_us.show') }}">{{ __('Contact Us') }}</a>
@@ -59,7 +62,7 @@
 
 
             @auth
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <ul class="mx-auto mb-2 navbar-nav mb-lg-0">
                     
 
                     <li>
@@ -83,14 +86,14 @@
                        
                         @if (strtolower(getLang()) == 'en')
                             <a href="{{ route('app.change_language', ['lang' => 'ar']) }}"
-                                class="btn btn-transparent-outline mx-2 action flag">
+                                class="mx-2 btn btn-transparent-outline action flag">
                                 عربي
 
                             </a>
                         @endif
                         @if (strtolower(getLang()) == 'ar')
                             <a href="{{ route('app.change_language', ['lang' => 'en']) }}"
-                                class="btn btn-transparent-outline mx-2 action flag">
+                                class="mx-2 btn btn-transparent-outline action flag">
                                 English
 
                             </a>
@@ -114,7 +117,7 @@
                     </li>
                 </ul>
             @else
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul class="mx-auto mb-2 navbar-nav mb-lg-0">
                 <li>
                     <div class="search-icon">
                         <svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"
@@ -135,14 +138,14 @@
                 <li>
                     @if (strtolower(getLang()) == 'en')
                         <a href="{{ route('app.change_language', ['lang' => 'ar']) }}"
-                            class="btn btn-transparent-outline mx-2 action flag">
+                            class="mx-2 btn btn-transparent-outline action flag">
                             عربي
 
                         </a>
                     @endif
                     @if (strtolower(getLang()) == 'ar')
                         <a href="{{ route('app.change_language', ['lang' => 'en']) }}"
-                            class="btn btn-transparent-outline mx-2 action flag">
+                            class="mx-2 btn btn-transparent-outline action flag">
                             English
 
                         </a>

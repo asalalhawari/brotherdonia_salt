@@ -345,5 +345,13 @@ Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
 Route::get('/videos', [VideoController::class, 'index'])->name('videos');
 
 
-Route::get('/occasions/booking', 'OccasionController@create')->name('occasions.create');
-Route::post('/occasions', 'OccasionController@store')->name('occasions.store');
+Route::get('/occasions', 'App\Http\Controllers\OccasionController@index')->name('occasions.index');
+Route::get('/occasions/create', 'App\Http\Controllers\OccasionController@create')->name('occasions.create');
+Route::post('/occasions', 'App\Http\Controllers\OccasionController@store')->name('occasions.store');
+Route::get('/occasions/{occasion}', 'App\Http\Controllers\OccasionController@show')->name('occasions.show');
+Route::get('/occasions/{occasion}/edit', 'App\Http\Controllers\OccasionController@edit')->name('occasions.edit');
+Route::put('/occasions/{occasion}', 'App\Http\Controllers\OccasionController@update')->name('occasions.update');
+Route::delete('/occasions/{occasion}', 'App\Http\Controllers\OccasionController@destroy')->name('occasions.destroy');
+
+// Route::resource('occasions', App\Http\Controllers\OccasionController::class);
+

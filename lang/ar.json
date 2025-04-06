@@ -185,5 +185,21 @@
   "products" : "المنتجات",
   "home" : "الرئيسية",
   "Product" : "المنتج",
-  " all_products" : "كل المنتجات "
+  " all_products" : "كل المنتجات ",
+  "Occasions" : "المناسبات",
+  
+  
+    "Plan Your Occasion": "خطط لمناسبتك",
+    "We are happy to fulfill your special requests and support you with an unforgettable experience of flavors and sweets": "يسعدنا تلبية طلباتكم الخاصة، وندعمكم بتجربة لا تُنسى من النكهات والحلا",
+    "Name": "الاسم",
+    "Event Type": "نوع المناسبة",
+    "Mobile Number": "رقم الموبايل",
+    "Event Date": "تاريخ المناسبة",
+    "Approximate Number of Guests": "عدد الضيوف التقريبي",
+    "Notes": "ملاحظات",
+    "Submit Request": "إرسال الطلب"
+
+
+
+
 }

@@ -3,11 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 use Illuminate\Database\Eloquent\Model;
 
-
-class Occasion extends Model 
+class Booking extends Model
 {
     use HasFactory;
 
@@ -19,10 +17,5 @@ class Occasion extends Model
         'event_date',
         'guest_count',
         'notes',
-    ];
-
-    protected $casts = [
-        'event_date' => 'date',
-        'guest_count' => 'integer',
     ];
 }

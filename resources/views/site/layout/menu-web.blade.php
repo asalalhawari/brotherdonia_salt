@@ -1,4 +1,4 @@
-<ul class="navbar-nav m-auto mb-2 mb-lg-0">
+<ul class="m-auto mb-2 navbar-nav mb-lg-0">
     <li class="nav-item">
         <a href="{{route('home')}}" class="nav-link active"><span>@langucw('home')</span></a>
     </li>
@@ -22,23 +22,26 @@
         <a class="nav-link" href="{{route('contact_us.show')}}"><span>@langucw('contact')</span></a>
     </li>
 </ul>
-<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<ul class="mb-2 navbar-nav me-auto mb-lg-0">
     <li class="nav-item">
         <a class="nav-link" href="{{ route('catalog') }}">الكتالوج</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('videos') }}">الفيديوهات</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('index.occasion') }}">المناسبات</a>
+    </li>
 </ul>
 
 {{-- <div class="header-menu d-flex justify-content-center">
-    <ul class="header-primary-menu header-primary-menu-04 px-5 shadow bg-white rounded-pill d-flex justify-content-center">
+    <ul class="px-5 bg-white shadow header-primary-menu header-primary-menu-04 rounded-pill d-flex justify-content-center">
         <li>
             <a href="{{route('home')}}" class="menu-item-link active"><span>@langucw('home')</span></a>
         </li>
         <li class="position-static">
             <a class="menu-item-link" href="#"><span>@langucw('shop')</span></a>
-            <div class="sub-menu sub-menu-mega  ">
+            <div class="sub-menu sub-menu-mega ">
                 <div class="row">
                     @foreach(\App\Models\Category::where('CatID','0')->get() as $cat)
                         <div class="col-xs-6 col-sm-4 col-md-3"><ul><li><a class="sub-item-link" href="{{route('products.index',[$cat->id])}}"><span >{{$cat->getName()}}</span></a></li></ul></div>
